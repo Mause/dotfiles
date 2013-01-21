@@ -1,0 +1,39 @@
+# 1350566352
+function hello\
+echo Hello world!\
+end\
+
+# 1350566764
+function hello\
+printf 'Hello %s\n' $argv\
+end\
+
+# 1350567724
+function yellow\
+printf '%s%s%s' (set_color yellow) $argv (set_color normal)\
+end\
+
+# 1350567741
+function yellow\
+printf '%s%s%s\n' (set_color yellow) $argv (set_color normal)\
+end\
+
+# 1350567802
+heloo world
+# 1350567817
+exit
+# 1350567831
+hello
+# 1350567870
+hello
+# 1351340871
+function hello\
+printf 'Hello %s\n' $argv\
+\
+end\
+
+# 1352119295
+function cls\
+clear\
+end\
+

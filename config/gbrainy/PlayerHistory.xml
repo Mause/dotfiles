@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfGameHistory xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <GameHistory>
+    <games_played>84</games_played>
+    <games_won>56</games_won>
+    <total_score>20</total_score>
+    <math_score>0</math_score>
+    <logic_score>0</logic_score>
+    <memory_score>0</memory_score>
+    <verbal_score>81</verbal_score>
+  </GameHistory>
+</ArrayOfGameHistory>
