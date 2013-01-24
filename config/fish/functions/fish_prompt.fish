@@ -1,5 +1,13 @@
 
 function fish_prompt
+    if test $status = 0
+        set_color green
+    else
+        set_color red
+    end
+    echo -n "•"
+    set_color normal
+    echo -n "<"
     set_color blue
     echo -n (whoami)
     set_color yellow
@@ -15,5 +23,6 @@ function fish_prompt
         echo -n "/";
     end;
     set_color normal
+    echo -n (git_folder_status)
     echo -n '> '
 end
