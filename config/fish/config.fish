@@ -2,6 +2,10 @@ function cls
     clear
 end
 
+function sshn
+    sudo shutdown -h now
+end
+
 set fish_git_dirty_color red
 set fish_git_clean_color green
 
