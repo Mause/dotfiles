@@ -1,0 +1,9 @@
+[user]
+	name = Dominic May
+	email = jack.thatch@gmail.com
+[color]
+	diff = auto
+
+[alias]
+	stat = status -sb
+	lsd = log --graph --decorate --pretty=oneline --abbrev-commit --all
