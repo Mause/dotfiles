@@ -7,3 +7,5 @@
 [alias]
 	stat = status -sb
 	lsd = log --graph --decorate --pretty=oneline --abbrev-commit --all
+[push]
+	default = simple
