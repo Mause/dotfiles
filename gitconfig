@@ -3,6 +3,7 @@
 	email = jack.thatch@gmail.com
 [color]
 	diff = auto
+	ui = auto
 
 [alias]
 	stat = status -sb
