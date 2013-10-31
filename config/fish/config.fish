@@ -6,6 +6,7 @@ function sshn
     sudo shutdown -h now
 end
 
+set PATH /home/dominic/.google_appengine $PATH
 set fish_git_dirty_color red
 set fish_git_clean_color green
 
