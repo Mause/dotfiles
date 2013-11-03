@@ -1,3 +1,8 @@
+set PATH /home/dominic/.google_appengine $PATH
+set fish_git_dirty_color red
+set fish_git_clean_color green
+set fish_greeting ""
+
 function cls
     clear
 end
@@ -5,10 +10,6 @@ end
 function sshn
     sudo shutdown -h now
 end
-
-set PATH /home/dominic/.google_appengine $PATH
-set fish_git_dirty_color red
-set fish_git_clean_color green
 
 function parse_git_status
      git diff --quiet HEAD ^&-
@@ -20,7 +21,6 @@ function parse_git_status
      echo -n (git branch | sed -rn 's/\* (\w+)/\1/p')
      set_color normal
 end
-
 
 function git_folder_status
      if test -d .git
