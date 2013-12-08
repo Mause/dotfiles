@@ -1,3 +1,3 @@
 function g
-	git stat
+	git stat $argv
 end
