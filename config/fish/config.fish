@@ -29,3 +29,6 @@ function git_folder_status
      end
 end
 
+# load plugins
+source ~/.config/fish/plugins/virtualfish/virtual.fish
+
