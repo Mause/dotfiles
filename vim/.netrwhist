@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/media/sf_Shared/ball_photos/FlipAlbumCD/FlipAlbumCD'
-let g:netrw_dirhist_2='/home/dominic/galaxy-team/galaxpy'
-let g:netrw_dirhist_3='/home/dominic/dotfiles_old/.vim'
