@@ -7,22 +7,23 @@ if $SHELL =~ 'bin/fish'
  set shell=/bin/sh
 endi
 
-set nocompatible  " be iMproved, apparently
-
 set expandtab
 set shiftwidth=4
 set softtabstop=4
 
 syntax enable
+
+set nocompatible  " be iMproved, apparently
 filetype off
 
-set rtp+=~/.vim/bundle/vundle
+set rtp+=~/.vim/bundle/Vundle.vim
 "set verbose=10
-call vundle#rc()
-Bundle 'gmarik/vundle'
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
 
-Bundle 'vim-scripts/fish.vim'
-Bundle "daylerees/colour-schemes", {"rtp": "vim-themes/"}
+Plugin 'vim-scripts/fish.vim'
+Plugin 'daylerees/colour-schemes', {'rtp': 'vim-themes/'}
+call vundle#end()
 
 colorscheme Darkside
 
