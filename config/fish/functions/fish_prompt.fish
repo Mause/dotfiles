@@ -1,7 +1,7 @@
 
 function fish_prompt
     # display the status of the last run command
-    if test $status = 0
+    if [ "$status" = "0" ]
         set_color green
     else
         set_color red
