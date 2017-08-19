@@ -3,3 +3,5 @@ fish_read_history
 Trolltech.conf
 *generated_completions*
 *config/dconf/user*
+fish_history*
+fishd*
