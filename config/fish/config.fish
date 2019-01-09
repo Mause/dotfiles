@@ -1,5 +1,3 @@
-
-set PATH /home/dominic/.google_appengine $PATH
 set fish_git_dirty_color red
 set fish_git_clean_color green
 set fish_greeting ""
@@ -28,7 +26,4 @@ function git_folder_status
           echo -n "["(parse_git_status)"]"
      end
 end
-
-# load plugins
-source ~/.config/fish/plugins/virtualfish/virtual.fish
 
