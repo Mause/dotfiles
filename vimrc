@@ -1,7 +1,3 @@
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
-
 " Vim needs a POSIX-Compliant shell. Fish is not.
 if $SHELL =~ 'bin/fish'
  set shell=/bin/sh
