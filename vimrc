@@ -17,10 +17,14 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'vim-python/python-syntax'
+
 Plugin 'vim-scripts/fish.vim'
 Plugin 'daylerees/colour-schemes', {'rtp': 'vim-themes/'}
 call vundle#end()
 
 colorscheme Darkside
+
+let g:python_highlight_all = 1
 
 filetype plugin indent on
