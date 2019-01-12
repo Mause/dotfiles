@@ -53,6 +53,6 @@ function fish_prompt
 
     # git branch
     set_color normal
-    printf '%s ' (__fish_git_prompt)
+    printf '%s' (__fish_git_prompt)
     echo -n '> '
 end
