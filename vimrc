@@ -19,6 +19,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'vim-python/python-syntax'
 
+Plugin 'Quramy/tsuquyomi'
+
 Plugin 'vim-scripts/fish.vim'
 Plugin 'daylerees/colour-schemes', {'rtp': 'vim-themes/'}
 call vundle#end()
