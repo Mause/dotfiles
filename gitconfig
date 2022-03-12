@@ -4,7 +4,6 @@
 [color]
 	diff = auto
 	ui = auto
-
 [alias]
 	stat = status -sb
 	lsd = log --graph --decorate --pretty=oneline --abbrev-commit --all
@@ -17,3 +16,5 @@
 	defaultBranch = main
 [pull]
 	rebase = false
+[fetch]
+        prune = true
