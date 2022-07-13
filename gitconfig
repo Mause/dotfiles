@@ -9,6 +9,7 @@
 	lsd = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	changed = log ORIG_HEAD..HEAD
 [push]
+	autoSetupRemote = true
 [core]
 	editor = vim
 	autocrlf = input
