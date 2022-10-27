@@ -19,3 +19,4 @@
 	rebase = false
 [fetch]
         prune = true
+	showForcedUpdates = true
