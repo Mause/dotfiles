@@ -18,5 +18,5 @@
 [pull]
 	rebase = false
 [fetch]
-        prune = true
+	prune = true
 	showForcedUpdates = true
