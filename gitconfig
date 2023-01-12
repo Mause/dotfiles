@@ -5,7 +5,7 @@
 	diff = auto
 	ui = auto
 [alias]
-	stat = status -sb
+	stat = status --short --branch --ahead-behind
 	lsd = log --graph --decorate --pretty=oneline --abbrev-commit --all
 	changed = log ORIG_HEAD..HEAD
 [push]
