@@ -6,7 +6,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="local cargo config vimrc vim duckdbrc gitconfig pdbrc.py tmux.conf"    # list of files/folders to symlink in homedir
+files="cargo config duckdbrc gitconfig local pdbrc.py tmux.conf vim vimrc"    # list of files/folders to symlink in homedir
 
 ##########
 
