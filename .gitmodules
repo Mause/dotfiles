@@ -4,3 +4,6 @@
 [submodule "local/share/gh/extensions/gh-tidy"]
 	path = local/share/gh/extensions/gh-tidy
 	url = https://github.com/HaywardMorihara/gh-tidy
+[submodule "config/nvim/pack/github/start/copilot.vim"]
+	path = config/nvim/pack/github/start/copilot.vim
+	url = https://github.com/github/copilot.vim.git
