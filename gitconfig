@@ -21,3 +21,5 @@
 [fetch]
 	prune = true
 	showForcedUpdates = true
+[merge]
+	conflictStyle = zdiff3
