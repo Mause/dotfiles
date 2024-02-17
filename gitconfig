@@ -24,3 +24,5 @@
 	showForcedUpdates = true
 [merge]
 	conflictStyle = zdiff3
+[rebase]
+	autoSquash = true
