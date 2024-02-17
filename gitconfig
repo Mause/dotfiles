@@ -20,6 +20,7 @@
 	rebase = false
 [fetch]
 	prune = true
+	pruneTags = true
 	showForcedUpdates = true
 [merge]
 	conflictStyle = zdiff3
