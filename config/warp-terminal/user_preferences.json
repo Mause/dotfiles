@@ -1,0 +1,17 @@
+{
+  "prefs": {
+    "AutosuggestionAcceptedCount": "2",
+    "DismissedWarpAIWarmWelcome": "true",
+    "ChangelogVersions": "{\"v0.2024.02.20.08.01.stable_02\":true}",
+    "AIAssistantRequestLimitInfo": "{\"limit\":100,\"num_requests_used_since_refresh\":2,\"next_refresh_time\":\"2024-02-27T08:03:05.708800Z\"}",
+    "HasDismissedWarpDriveWelcome": "true",
+    "WelcomeTipsCompleted": "true",
+    "ReceivedReferralTheme": "\"Inactive\"",
+    "Theme": "\"CyberWave\"",
+    "ExperimentId": "0c44d5bf-db43-4362-90b6-377d512512bc",
+    "FontSize": "13.0",
+    "Shortcuts": "true",
+    "HasAutoOpenedWelcomeFolder": "true",
+    "WelcomeTipsFeaturesUsed": "[{\"Hint\":\"BlockSelect\"},{\"Action\":\"SplitPane\"},{\"Action\":\"AiCommandSearch\"},{\"Action\":\"OpenWarpDrive\"},{\"Action\":\"WarpAI\"},{\"Action\":\"CommandPalette\"},{\"Hint\":\"CreateBlock\"},{\"Hint\":\"BlockAction\"},{\"Action\":\"CommandSearch\"},{\"Action\":\"ThemePicker\"}]"
+  }
+}
