@@ -13,7 +13,6 @@ set nocompatible  " be iMproved, apparently
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
-"set verbose=10
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
@@ -22,7 +21,7 @@ Plugin 'vim-python/python-syntax'
 Plugin 'Quramy/tsuquyomi'
 
 Plugin 'vim-scripts/fish.vim'
-Plugin 'daylerees/colour-schemes', {'rtp': 'vim-themes/'}
+Plugin 'daylerees/colour-schemes', {'rtp': 'vim/'}
 call vundle#end()
 
 colorscheme Darkside
