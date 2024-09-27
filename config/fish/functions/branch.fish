@@ -1,3 +1,3 @@
 function branch
-    git switch -c (echo $argv | sed "s/\s/-/g")
+    git switch -c (echo $argv | sed -E 's/[[:space:]]+/-/g')
 end
