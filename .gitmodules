@@ -7,3 +7,6 @@
 [submodule "config/nvim/pack/github/start/copilot.vim"]
 	path = config/nvim/pack/github/start/copilot.vim
 	url = https://github.com/github/copilot.vim.git
+[submodule "local/share/gh/extensions/gh-f"]
+	path = local/share/gh/extensions/gh-f
+	url = https://github.com/gennaro-tedesco/gh-f
