@@ -10,6 +10,7 @@
 	changed = log ORIG_HEAD..HEAD
  	whitespace = !git diff -U0 -w --no-color | git apply --cached --ignore-whitespace --unidiff-zero -
 	undo = reset --soft HEAD^
+	tag-verbose = tag --format='%(color:bold cyan)== %(refname:short) ==%(if)%(object)%(then)%0aTag Hash: %(objectname)%0aTag Date: %(taggerdate:iso-local)%0a  Commit: %(object) %0a%0a%(contents)%(else)%0a(lightweight tag)%0a  Commit: %(objectname)%(end)%0a'
 [push]
 	autoSetupRemote = true
 [core]
