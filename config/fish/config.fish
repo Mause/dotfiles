@@ -3,3 +3,5 @@ function sshn
 end
 
 direnv hook fish | source
+git town completions fish | source
+
