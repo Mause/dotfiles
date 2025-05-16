@@ -1,3 +1,3 @@
 function branch
-    git switch -c (echo $argv | sed -E 's/[[:space:]]+/-/g')
+    git town append (echo $argv | sed -E 's/[[:space:]]+/-/g')
 end
