@@ -20,6 +20,7 @@
 [core]
 	editor = vim
 	autocrlf = input
+	pager = diff-so-fancy | less --tabs=4 -RF
 [init]
 	defaultBranch = main
 [pull]
@@ -39,3 +40,5 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+[interactive]
+	diffFilter = diff-so-fancy --patch
