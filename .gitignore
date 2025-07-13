@@ -5,3 +5,4 @@ Trolltech.conf
 *config/dconf/user*
 fish_history*
 fishd*
+cargo/registry
