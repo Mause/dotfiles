@@ -3,6 +3,10 @@ return {
 	{ 'williamboman/mason.nvim' },
 	{ 'williamboman/mason-lspconfig.nvim' },
 	{ 'neovim/nvim-lspconfig' },
-	{ 'simrat39/rust-tools.nvim' },
+	{
+		'mrcjkb/rustaceanvim',
+		version = '^6', -- Recommended
+		lazy = false, -- This plugin is already lazy
+	},
 	{ 'github/copilot.vim' },
 }
