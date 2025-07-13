@@ -6,3 +6,4 @@ Trolltech.conf
 fish_history*
 fishd*
 cargo/registry
+local/pipx/venvs
