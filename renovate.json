@@ -1,16 +1,16 @@
 {
   "extends": [
-    "config:base"
+    "config:recommended"
   ],
   "configMigration": true,
   "customManagers": [
     {
       "customType": "regex",
       "managerFilePatterns": [
-	"lazy-lock.json$"
+        "lazy-lock.json$"
       ],
       "matchStrings": [
-          "\"(?<depName>[^\"]+)\": { \"branch\": \"(?<branch>[^\"]+)\", \"commit\": \"(?<currentValue>[^\"]+)\" }"
+        "\"(?<depName>[^\"]+)\": { \"branch\": \"(?<branch>[^\"]+)\", \"commit\": \"(?<currentValue>[^\"]+)\" }"
       ],
       "datasourceTemplate": "git-submodules"
     }
