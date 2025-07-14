@@ -8,7 +8,7 @@
     {
       "customType": "regex",
       "managerFilePatterns": [
-        "/(^|/)lazy-lock\.json$/"
+        "/(^|/)lazy-lock\\.json$/"
       ],
       "matchStrings": [
         "\"(?<depName>[^\"]+)\": { \"branch\": \"(?<branch>[^\"]+)\", \"commit\": \"(?<currentValue>[^\"]+)\" }"
