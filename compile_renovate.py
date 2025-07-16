@@ -16,22 +16,23 @@ def get_deps(filename):
     with filename.open() as fh:
         lua = fh.read()
 
-    contents = slpp.decode(lua[len('return'):])
+    contents = slpp.decode(lua[len("return") :])
 
-    for dep in (contents.values() if isinstance(contents, dict) else contents):
+    for dep in contents.values() if isinstance(contents, dict) else contents:
         res = {}
 
         if isinstance(dep, dict):
             for k, v in dep.items():
                 if k == 0:
-                    res['name'] = v
-                elif k == 'branch':
-                    res['branch'] = v
+                    res["name"] = v
+                elif k == "branch":
+                    res["branch"] = v
         else:
-            res['name'] = dep[0]
+            res["name"] = dep[0]
+
+        res["name"], res["owner"] = res["name"].split("/")
 
         yield res
-
 
 
 deps = [
@@ -39,11 +40,11 @@ deps = [
     for filename in Path("config/nvim/lua/plugins").glob("*.lua")
     for dep in get_deps(filename)
 ]
-deps.append({'name': "folke/lazy.nvim"})
+deps.append({"owner": "folke", "name": "lazy.nvim"})
 
 template = "".join(
     [
-        "{{# if (equals depName '%s') }}%s{{/if}}" % tuple(dep['name'].split('/'))
+        "{{# if (equals depName '%s') }}%s{{/if}}" % (dep["name"], dep["owner"])
         for dep in deps
     ]
 )
@@ -52,6 +53,14 @@ print(template)
 res = f"https://github.com/{template}/{{{{depName}}}}"
 print(res)
 renovate["customManagers"][0]["depNameTemplate"] = res
+
+renovate["customManagers"][0]["currentValueTemplate"] = "".join(
+    [
+        "{{# if (equals depName '%s') }}%s{{/if}}"
+        % (dep["name"], dep.get("branch", "main"))
+        for dep in deps
+    ]
+)
 
 with open("renovate.json", "w") as fh:
     json.dump(renovate, fh, indent=2)
