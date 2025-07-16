@@ -30,7 +30,7 @@ def get_deps(filename):
         else:
             res["name"] = dep[0]
 
-        res["name"], res["owner"] = res["name"].split("/")
+        res["owner"], res["name"] = res["name"].split("/")
 
         yield res
 
