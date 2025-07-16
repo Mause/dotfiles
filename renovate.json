@@ -18,6 +18,12 @@
       "datasourceTemplate": "git-refs"
     }
   ],
+  "logLevelRemap": [
+    {
+      "matchMessage": "/^Dependency extraction complete/",
+      "newLogLevel": "info"
+    }
+  ],
   "git-submodules": {
     "enabled": true
   }
