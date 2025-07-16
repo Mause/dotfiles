@@ -16,7 +16,7 @@ pprint(deps)
 template = ''.join([("{{# if (equals depName '%s') }}%s{{/if}}" % (depname, owner)) for owner, depname in deps])
 print(template)
 
-res = f'https://github.com/{template}/{{depName}}'
+res = f'https://github.com/{template}/{{{{depName}}}}'
 print(res)
 renovate['customManagers'][0]['depNameTemplate'] = res
 
