@@ -13,7 +13,7 @@
       "matchStrings": [
         "\"(?<depName>[^\"]+)\": { \"branch\": \"(?<branch>[^\"]+)\", \"commit\": \"(?<currentValue>[^\"]+)\" }"
       ],
-      "depNameTemplate": "https://github.com/{{# if (equals depName 'nvim-treesitter') }}nvim-treesitter{{/if}}{{# if (equals depName 'mason.nvim') }}williamboman{{/if}}{{# if (equals depName 'mason-lspconfig.nvim') }}williamboman{{/if}}{{# if (equals depName 'nvim-lspconfig') }}neovim{{/if}}{{# if (equals depName 'rustaceanvim') }}mrcjkb{{/if}}{{# if (equals depName 'copilot.vim') }}github{{/if}}/{{depName}}",
+      "depNameTemplate": "https://github.com/{{# if (equals depName 'nvim-treesitter') }}nvim-treesitter{{/if}}{{# if (equals depName 'mason.nvim') }}williamboman{{/if}}{{# if (equals depName 'mason-lspconfig.nvim') }}williamboman{{/if}}{{# if (equals depName 'nvim-lspconfig') }}neovim{{/if}}{{# if (equals depName 'rustaceanvim') }}mrcjkb{{/if}}{{# if (equals depName 'copilot.vim') }}github{{/if}}{{# if (equals depName 'trouble.nvim') }}folke{{/if}}/{{depName}}",
       "versioningTemplate": "git",
       "datasourceTemplate": "git-refs"
     }
