@@ -1,8 +1,15 @@
 -- Setup language servers.
 local lspconfig = require('lspconfig')
-lspconfig.ts_ls.setup {
-   cmd = { "node", "/data/data/com.termux/files/usr/bin/typescript-language-server", "--stdio" }
-}
+
+-- check if server exists before setting the path
+local filename = "/data/data/com.termux/files/usr/bin/typescript-language-server";
+if vim.uv.fs_stat(filename) then
+	lspconfig.ts_ls.setup {
+	   cmd = { "node", filename, "--stdio" }
+	}
+else
+	lspconfig.ts_ls.setup({})
+end
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
