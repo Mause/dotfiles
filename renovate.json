@@ -13,7 +13,7 @@
       "matchStrings": [
         "\"(?<depName>[^\"]+)\": { \"branch\": \"(?<branch>[^\"]+)\", \"commit\": \"(?<currentValue>[^\"]+)\" }"
       ],
-      "depNameTemplate": "https://github.com/{{# if (equals depName 'nvim-treesitter') }}nvim-treesitter{{/if}}{{# if (equals depName 'mason.nvim') }}williamboman{{/if}}{{# if (equals depName 'mason-lspconfig.nvim') }}williamboman{{/if}}{{# if (equals depName 'nvim-lspconfig') }}neovim{{/if}}{{# if (equals depName 'rustaceanvim') }}mrcjkb{{/if}}{{# if (equals depName 'copilot.vim') }}github{{/if}}{{# if (equals depName 'trouble.nvim') }}folke{{/if}}{{# if (equals depName 'lazy.nvim.git') }}folke{{/if}}/{{depName}}",
+      "depNameTemplate": "https://github.com/{{# if (equals depName 'folke') }}trouble.nvim{{/if}}{{# if (equals depName 'nvim-treesitter') }}nvim-treesitter{{/if}}{{# if (equals depName 'williamboman') }}mason.nvim{{/if}}{{# if (equals depName 'williamboman') }}mason-lspconfig.nvim{{/if}}{{# if (equals depName 'neovim') }}nvim-lspconfig{{/if}}{{# if (equals depName 'mrcjkb') }}rustaceanvim{{/if}}{{# if (equals depName 'github') }}copilot.vim{{/if}}{{# if (equals depName 'folke') }}lazy.nvim{{/if}}/{{depName}}",
       "versioningTemplate": "git",
       "datasourceTemplate": "git-refs"
     }

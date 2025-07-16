@@ -39,7 +39,7 @@ deps = [
     for filename in Path("config/nvim/lua/plugins").glob("*.lua")
     for dep in get_deps(filename)
 ]
-deps.append(("folke", "lazy.nvim.git"))
+deps.append({'name': "folke/lazy.nvim"})
 
 template = "".join(
     [
