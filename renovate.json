@@ -13,9 +13,9 @@
       "matchStrings": [
         "\"(?<depName>[^\"]+)\": { \"branch\": \"(?<branch>[^\"]+)\", \"commit\": \"(?<currentDigest>[^\"]+)\" }"
       ],
-      "depNameTemplate": "https://github.com/{{# if (equals depName 'folke') }}trouble.nvim{{/if}}{{# if (equals depName 'nvim-treesitter') }}nvim-treesitter{{/if}}{{# if (equals depName 'williamboman') }}mason.nvim{{/if}}{{# if (equals depName 'williamboman') }}mason-lspconfig.nvim{{/if}}{{# if (equals depName 'neovim') }}nvim-lspconfig{{/if}}{{# if (equals depName 'mrcjkb') }}rustaceanvim{{/if}}{{# if (equals depName 'github') }}copilot.vim{{/if}}{{# if (equals depName 'lazy.nvim') }}folke{{/if}}/{{depName}}",
+      "depNameTemplate": "https://github.com/{{# if (equals depName 'folke') }}trouble.nvim{{/if}}{{# if (equals depName 'github') }}copilot.vim{{/if}}{{# if (equals depName 'lazy.nvim') }}folke{{/if}}{{# if (equals depName 'mrcjkb') }}rustaceanvim{{/if}}{{# if (equals depName 'neovim') }}nvim-lspconfig{{/if}}{{# if (equals depName 'nvim-treesitter') }}nvim-treesitter{{/if}}{{# if (equals depName 'williamboman') }}mason.nvim{{/if}}{{# if (equals depName 'williamboman') }}mason-lspconfig.nvim{{/if}}/{{depName}}",
       "datasourceTemplate": "git-refs",
-      "currentValueTemplate": "{{# if (equals depName 'folke') }}main{{/if}}{{# if (equals depName 'nvim-treesitter') }}master{{/if}}{{# if (equals depName 'williamboman') }}main{{/if}}{{# if (equals depName 'williamboman') }}main{{/if}}{{# if (equals depName 'neovim') }}main{{/if}}{{# if (equals depName 'mrcjkb') }}main{{/if}}{{# if (equals depName 'github') }}main{{/if}}{{# if (equals depName 'lazy.nvim') }}main{{/if}}"
+      "currentValueTemplate": "{{# if (equals depName 'folke') }}main{{/if}}{{# if (equals depName 'github') }}main{{/if}}{{# if (equals depName 'lazy.nvim') }}main{{/if}}{{# if (equals depName 'mrcjkb') }}main{{/if}}{{# if (equals depName 'neovim') }}main{{/if}}{{# if (equals depName 'nvim-treesitter') }}master{{/if}}{{# if (equals depName 'williamboman') }}main{{/if}}{{# if (equals depName 'williamboman') }}main{{/if}}"
     }
   ],
   "logLevelRemap": [

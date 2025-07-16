@@ -41,6 +41,7 @@ deps = [
     for dep in get_deps(filename)
 ]
 deps.append({"owner": "folke", "name": "lazy.nvim"})
+deps.sort(key=lambda x: x["name"])
 
 template = "".join(
     [
