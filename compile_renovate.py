@@ -10,9 +10,6 @@ from slpp import slpp
 
 renovate_json = Path('renovate.json5')
 
-with renovate_json.open() as fh:
-    renovate = json.load(fh)
-
 
 def get_deps(filename):
     with filename.open() as fh:
@@ -36,34 +33,37 @@ def get_deps(filename):
 
         yield res
 
-
-deps = [
-    dep
-    for filename in Path("config/nvim/lua/plugins").glob("*.lua")
-    for dep in get_deps(filename)
-]
-deps.append({"owner": "folke", "name": "lazy.nvim"})
-deps.sort(key=lambda x: x["name"])
-
-template = "".join(
-    [
-        "{{# if (equals depName '%s') }}%s{{/if}}" % (dep["name"], dep["owner"])
-        for dep in deps
+def get_all_deps():
+    deps = [
+        dep
+        for filename in Path("config/nvim/lua/plugins").glob("*.lua")
+        for dep in get_deps(filename)
     ]
-)
-print(template)
+    deps.append({"owner": "folke", "name": "lazy.nvim"})
+    deps.sort(key=lambda x: x["name"])
+    return deps
 
-res = f"https://github.com/{template}/{{{{depName}}}}"
-print(res)
-renovate["customManagers"][0]["depNameTemplate"] = res
 
-renovate["customManagers"][0]["currentValueTemplate"] = "".join(
-    [
-        "{{# if (equals depName '%s') }}%s{{/if}}"
-        % (dep["name"], dep.get("branch", "main"))
-        for dep in deps
-    ]
-)
+def main():
+    template = "".join(
+        [
+            "{{# if (equals depName '%s') }}%s{{/if}}" % (dep["name"], dep["owner"])
+            for dep in deps
+        ]
+    )
+    print(template)
+    
+    res = f"https://github.com/{template}/{{{{depName}}}}"
+    print(res)
 
-with renovate_json.open("w") as fh:
-    json.dump(renovate, fh, indent=2)
+    with renovate_json.open() as fh:
+        renovate = json.load(fh)
+
+    renovate["customManagers"][0]["depNameTemplate"] = res
+    
+    with renovate_json.open("w") as fh:
+        json.dump(renovate, fh, indent=2)
+
+if __name__ == '__main__':
+    main()
+
