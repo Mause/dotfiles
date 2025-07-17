@@ -1,7 +1,8 @@
 # /// script
-# dependencies = ['slpp', 'json5', 'pdbpp']
+# dependencies = ['slpp', 'json5', 'jsonata-python', 'pdbpp']
 # ///
 
+import jsonata
 import json5 as json
 import re
 from pprint import pprint
@@ -58,6 +59,11 @@ def main():
 
     with renovate_json.open() as fh:
         renovate = json.load(fh)
+
+    expr = jsonata.Jsonata(renovate['customManagers'][0]['matchStrings'][0])
+    with open('config/nvim/lazy-lock.json') as fh:
+        data = json.load(fh)
+    result = expr.evaluate(data)
 
     renovate["customManagers"][0]["depNameTemplate"] = res
     
