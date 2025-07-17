@@ -49,7 +49,7 @@ def main():
     template = "".join(
         [
             "{{# if (equals depName '%s') }}%s{{/if}}" % (dep["name"], dep["owner"])
-            for dep in deps
+            for dep in get_all_deps()
         ]
     )
     print(template)
