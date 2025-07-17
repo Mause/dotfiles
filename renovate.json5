@@ -22,7 +22,7 @@
   "logLevelRemap": [
     {
       "matchMessage": "/^Dependency extraction complete/",
-      "newLogLevel": "info"
+      "newLogLevel": "trace"
     }
   ],
   "git-submodules": {
