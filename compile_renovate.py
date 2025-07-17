@@ -4,12 +4,10 @@
 
 import jsonata
 import json5 as json
-import re
-from pprint import pprint
 from pathlib import Path
 from slpp import slpp
 
-renovate_json = Path('renovate.json5')
+renovate_json = Path("renovate.json5")
 
 
 def get_deps(filename):
@@ -34,6 +32,7 @@ def get_deps(filename):
 
         yield res
 
+
 def get_all_deps():
     deps = [
         dep
@@ -53,23 +52,23 @@ def main():
         ]
     )
     print(template)
-    
+
     res = f"https://github.com/{template}/{{{{depName}}}}"
     print(res)
 
     with renovate_json.open() as fh:
         renovate = json.load(fh)
 
-    expr = jsonata.Jsonata(renovate['customManagers'][0]['matchStrings'][0])
-    with open('config/nvim/lazy-lock.json') as fh:
+    expr = jsonata.Jsonata(renovate["customManagers"][0]["matchStrings"][0])
+    with open("config/nvim/lazy-lock.json") as fh:
         data = json.load(fh)
-    result = expr.evaluate(data)
+    expr.evaluate(data)
 
     renovate["customManagers"][0]["depNameTemplate"] = res
-    
+
     with renovate_json.open("w") as fh:
-        json.dump(renovate, fh, indent=2)
+        json.dump(renovate, fh, indent=2, quote_keys=True, trailing_commas=False)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
-
