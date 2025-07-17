@@ -1,14 +1,16 @@
 # /// script
-# dependencies = ['slpp', 'pdbpp']
+# dependencies = ['slpp', 'json5', 'pdbpp']
 # ///
 
-import json
+import json5 as json
 import re
 from pprint import pprint
 from pathlib import Path
 from slpp import slpp
 
-with open("renovate.json") as fh:
+renovate_json = Path('renovate.json5')
+
+with renovate_json.open() as fh:
     renovate = json.load(fh)
 
 
@@ -63,5 +65,5 @@ renovate["customManagers"][0]["currentValueTemplate"] = "".join(
     ]
 )
 
-with open("renovate.json", "w") as fh:
+with renovate_json.open("w") as fh:
     json.dump(renovate, fh, indent=2)
