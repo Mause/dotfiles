@@ -6,13 +6,12 @@
   "configMigration": true,
   "customManagers": [
     {
-      "customType": "jsonata",
-      "fileFormat": "json",
+      "customType": "regex",
       "managerFilePatterns": [
         "/(^|/)lazy-lock\\.json$/"
       ],
       "matchStrings": [
-        "$each($, function($v, $k) {{'depName': $k, 'currentDigest': $v.commit, 'currentValue': $v.branch}})"
+        "\"(?<depName>[^\"]+)\": { \"branch\": \"(?<currentValue>[^\"]+)\", \"commit\": \"(?<currentDigest>[^\"]+)\" }"
       ],
       "depNameTemplate": "https://github.com/{{# if (equals depName 'copilot.vim') }}github{{/if}}{{# if (equals depName 'lazy.nvim') }}folke{{/if}}{{# if (equals depName 'mason-lspconfig.nvim') }}williamboman{{/if}}{{# if (equals depName 'mason.nvim') }}williamboman{{/if}}{{# if (equals depName 'nvim-lspconfig') }}neovim{{/if}}{{# if (equals depName 'nvim-treesitter') }}nvim-treesitter{{/if}}{{# if (equals depName 'rustaceanvim') }}mrcjkb{{/if}}{{# if (equals depName 'trouble.nvim') }}folke{{/if}}/{{depName}}",
       "versioningTemplate": "git",
