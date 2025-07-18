@@ -4,6 +4,20 @@
     "config:recommended"
   ],
   "configMigration": true,
+  "prBodyDefinitions": {
+    "Compare changes": "[Compare changes]({{{depName}}}/compare/{{{currentDigest}}}...{{{newDigest}}})"
+  },
+  "packageRules": [
+    {
+      "matchManagers": ["regex"],
+      "prBodyColumns": [
+        "Package",
+        "Compare changes",
+        "Update",
+        "Change"
+      ]
+    }
+  ],
   "customManagers": [
     {
       "customType": "regex",
