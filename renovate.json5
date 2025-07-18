@@ -1,44 +1,46 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'config:recommended',
   ],
-  "configMigration": true,
-  "prBodyDefinitions": {
-    "Compare changes": "[Compare changes]({{{depName}}}/compare/{{{currentDigest}}}...{{{newDigest}}})"
+  configMigration: true,
+  prBodyDefinitions: {
+    'Compare changes': '[Compare changes]({{{depName}}}/compare/{{{currentDigest}}}...{{{newDigest}}})',
   },
-  "packageRules": [
+  packageRules: [
     {
-      "matchManagers": ["regex"],
-      "prBodyColumns": [
-        "Package",
-        "Compare changes",
-        "Update",
-        "Change"
-      ]
-    }
-  ],
-  "customManagers": [
-    {
-      "customType": "regex",
-      "managerFilePatterns": [
-        "/(^|/)lazy-lock\\.json$/"
+      matchManagers: [
+        'custom.regex',
       ],
-      "matchStrings": [
-        "\"(?<depName>[^\"]+)\": { \"branch\": \"(?<currentValue>[^\"]+)\", \"commit\": \"(?<currentDigest>[^\"]+)\" }"
+      prBodyColumns: [
+        'Package',
+        'Compare changes',
+        'Update',
+        'Change',
       ],
-      "depNameTemplate": "https://github.com/{{# if (equals depName 'copilot.vim') }}github{{/if}}{{# if (equals depName 'lazy.nvim') }}folke{{/if}}{{# if (equals depName 'mason-lspconfig.nvim') }}williamboman{{/if}}{{# if (equals depName 'mason.nvim') }}williamboman{{/if}}{{# if (equals depName 'nvim-lspconfig') }}neovim{{/if}}{{# if (equals depName 'nvim-treesitter') }}nvim-treesitter{{/if}}{{# if (equals depName 'rustaceanvim') }}mrcjkb{{/if}}{{# if (equals depName 'trouble.nvim') }}folke{{/if}}/{{depName}}",
-      "versioningTemplate": "git",
-      "datasourceTemplate": "git-refs"
-    }
+    },
   ],
-  "logLevelRemap": [
+  customManagers: [
     {
-      "matchMessage": "/^Dependency extraction complete/",
-      "newLogLevel": "trace"
-    }
+      customType: 'regex',
+      managerFilePatterns: [
+        '/(^|/)lazy-lock\\.json$/',
+      ],
+      matchStrings: [
+        '"(?<depName>[^"]+)": { "branch": "(?<currentValue>[^"]+)", "commit": "(?<currentDigest>[^"]+)" }',
+      ],
+      depNameTemplate: "https://github.com/{{# if (equals depName 'copilot.vim') }}github{{/if}}{{# if (equals depName 'lazy.nvim') }}folke{{/if}}{{# if (equals depName 'mason-lspconfig.nvim') }}williamboman{{/if}}{{# if (equals depName 'mason.nvim') }}williamboman{{/if}}{{# if (equals depName 'nvim-lspconfig') }}neovim{{/if}}{{# if (equals depName 'nvim-treesitter') }}nvim-treesitter{{/if}}{{# if (equals depName 'rustaceanvim') }}mrcjkb{{/if}}{{# if (equals depName 'trouble.nvim') }}folke{{/if}}/{{depName}}",
+      versioningTemplate: 'git',
+      datasourceTemplate: 'git-refs',
+    },
   ],
-  "git-submodules": {
-    "enabled": true
-  }
+  logLevelRemap: [
+    {
+      matchMessage: '/^Dependency extraction complete/',
+      newLogLevel: 'trace',
+    },
+  ],
+  'git-submodules': {
+    enabled: true,
+  },
 }
