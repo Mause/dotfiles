@@ -59,12 +59,14 @@ def main():
     with renovate_json.open() as fh:
         renovate = json5.load(fh)
 
-    expr = jsonata.Jsonata(renovate["customManagers"][0]["matchStrings"][0])
-    with open("config/nvim/lazy-lock.json") as fh:
-        data = json.load(fh)
-    expr.evaluate(data)
+    custom = renovate["customManagers"][0]
+    if custom["customType"] == "jsonata":
+        expr = jsonata.Jsonata(custom["matchStrings"][0])
+        with open("config/nvim/lazy-lock.json") as fh:
+            data = json.load(fh)
+        expr.evaluate(data)
 
-    renovate["customManagers"][0]["depNameTemplate"] = res
+    custom["depNameTemplate"] = res
 
     with renovate_json.open("w") as fh:
         json5.dump(renovate, fh, indent=2, quote_style=json5.QuoteStyle.PREFER_SINGLE)
