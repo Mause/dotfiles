@@ -11,7 +11,7 @@ else
 	lspconfig.ts_ls.setup({})
 end
 
-vim.lsp.enable('ty')
+vim.lsp.enable({'ty', 'ruff'})
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
