@@ -3,7 +3,7 @@
 # ///
 
 import jsonata
-import json5 as json
+import json5
 from pathlib import Path
 from slpp import slpp
 
@@ -57,7 +57,7 @@ def main():
     print(res)
 
     with renovate_json.open() as fh:
-        renovate = json.load(fh)
+        renovate = json5.load(fh)
 
     expr = jsonata.Jsonata(renovate["customManagers"][0]["matchStrings"][0])
     with open("config/nvim/lazy-lock.json") as fh:
@@ -67,7 +67,7 @@ def main():
     renovate["customManagers"][0]["depNameTemplate"] = res
 
     with renovate_json.open("w") as fh:
-        json.dump(renovate, fh, indent=2, quote_keys=True, trailing_commas=False)
+        json5.dump(renovate, fh, indent=2, quote_style=json5.QuoteStyle.PREFER_SINGLE)
 
 
 if __name__ == "__main__":
