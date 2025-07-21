@@ -11,7 +11,6 @@ else
 	lspconfig.ts_ls.setup({})
 end
 
-lspconfig.ruff.setup({})
 vim.lsp.enable({'ty', 'ruff'})
 
 -- Use LspAttach autocommand to only map the following keys
