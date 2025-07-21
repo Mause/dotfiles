@@ -1,5 +1,4 @@
 -- Setup language servers.
-local lspconfig = require('lspconfig')
 
 -- check if server exists before setting the path
 local filename = "/data/data/com.termux/files/usr/bin/typescript-language-server";
