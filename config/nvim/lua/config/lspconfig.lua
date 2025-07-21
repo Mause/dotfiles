@@ -4,14 +4,12 @@ local lspconfig = require('lspconfig')
 -- check if server exists before setting the path
 local filename = "/data/data/com.termux/files/usr/bin/typescript-language-server";
 if vim.uv.fs_stat(filename) then
-	lspconfig.ts_ls.setup {
-	   cmd = { "node", filename, "--stdio" }
-	}
-else
-	lspconfig.ts_ls.setup({})
+    vim.lsp.config('ts_ls', {
+        cmd = {"node", filename, "--stdio"}
+    })
 end
 
-vim.lsp.enable({'ty', 'ruff'})
+vim.lsp.enable({'ty', 'ts_ls', 'ruff'})
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
