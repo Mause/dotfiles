@@ -8,6 +8,6 @@
   "nvim-lspconfig": { "branch": "master", "commit": "4d3b3bb8815fbe37bcaf3dbdb12a22382bc11ebe" },
   "nvim-treesitter": { "branch": "master", "commit": "42fc28ba918343ebfd5565147a42a26580579482" },
   "nvim-web-devicons": { "branch": "master", "commit": "0422a19d9aa3aad2c7e5cca167e5407b13407a9d" },
-  "rustaceanvim": { "branch": "master", "commit": "946d80ddd07126a3aa3f761cc30f911640aae606" },
+  "rustaceanvim": { "branch": "master", "commit": "f845bb055397019c4bc70f9c76376ca490f4c783" },
   "trouble.nvim": { "branch": "main", "commit": "85bedb7eb7fa331a2ccbecb9202d8abba64d37b3" }
 }
