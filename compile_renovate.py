@@ -63,7 +63,7 @@ def main():
     if custom["customType"] == "jsonata":
         expr = jsonata.Jsonata(custom["matchStrings"][0])
         with open("config/nvim/lazy-lock.json") as fh:
-            data = json.load(fh)
+            data = json5.load(fh)
         expr.evaluate(data)
 
     custom["depNameTemplate"] = res
