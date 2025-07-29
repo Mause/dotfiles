@@ -10,6 +10,16 @@ from slpp import slpp
 renovate_json = Path("renovate.json5")
 
 
+def unwrap_dict(dep: dict):
+    res = {}
+    for k, v in dep.items():
+        if k == 0:
+            res["name"] = v
+        elif k == "branch":
+            res["branch"] = v
+    return res
+
+
 def get_deps(filename):
     with filename.open() as fh:
         lua = fh.read()
@@ -19,18 +29,21 @@ def get_deps(filename):
     for dep in contents.values() if isinstance(contents, dict) else contents:
         res = {}
 
+        single_dep = False
         if isinstance(dep, dict):
-            for k, v in dep.items():
-                if k == 0:
-                    res["name"] = v
-                elif k == "branch":
-                    res["branch"] = v
-        else:
+            res = unwrap_dict(dep)
+        elif isinstance(dep, list):
             res["name"] = dep[0]
+        else:
+            res = unwrap_dict(contents)
+            single_dep = True
 
         res["owner"], res["name"] = res["name"].split("/")
 
         yield res
+
+        if single_dep:
+            break
 
 
 def get_all_deps():
