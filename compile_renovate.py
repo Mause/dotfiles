@@ -64,10 +64,8 @@ def main():
             for dep in get_all_deps()
         ]
     )
-    print(template)
 
     res = f"https://github.com/{template}/{{{{depName}}}}"
-    print(res)
 
     with renovate_json.open() as fh:
         renovate = json5.load(fh)
