@@ -19,7 +19,19 @@ def unwrap_dict(dep: dict):
             res["name"] = v
         elif k == "branch":
             res["branch"] = v
-    return res
+        elif k == "dependencies":
+            res["dependencies"] = [
+                add_owner(unwrap_dict(d) if isinstance(d, dict) else {"name": d})
+                for d in v
+            ]
+
+    return add_owner(res)
+
+
+def add_owner(dep: dict):
+    if "owner" not in dep:
+        dep["owner"], dep["name"] = dep["name"].split("/")
+    return dep
 
 
 def get_deps(filename):
@@ -40,7 +52,9 @@ def get_deps(filename):
             res = unwrap_dict(contents)
             single_dep = True
 
-        res["owner"], res["name"] = res["name"].split("/")
+        res = add_owner(res)
+        if "dependencies" in res:
+            yield from res["dependencies"]
 
         yield res
 
