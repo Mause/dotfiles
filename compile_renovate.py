@@ -1,9 +1,11 @@
 # /// script
-# dependencies = ['slpp', 'json5', 'jsonata-python', 'pdbpp']
+# dependencies = ['slpp', 'json5', 'jsonata-python', 'pdbpp', 'pybars3']
 # ///
 
 import jsonata
+from pybars import Compiler
 import json5
+
 from pathlib import Path
 from slpp import slpp
 
@@ -66,6 +68,13 @@ def main():
     )
 
     res = f"https://github.com/{template}/{{{{depName}}}}"
+
+    compiler = Compiler()
+    template = compiler.compile(res)
+    output = template(
+        {"depName": "nvim-web-devicons"}, helpers={"equals": lambda this, a, b: a == b}
+    )
+    assert output.count("//") == 1, output
 
     with renovate_json.open() as fh:
         renovate = json5.load(fh)
