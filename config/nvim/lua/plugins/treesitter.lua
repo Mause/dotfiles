@@ -9,5 +9,5 @@ return {
 		lazy = false, -- This plugin is already lazy
 	},
 	{ 'github/copilot.vim' },
-  { 'nvim-tree/nvim-tree.lua', opts = {} },
+  { 'nvim-tree/nvim-tree.lua', opts = {}, dependencies = { 'nvim-tree/nvim-web-devicons' } },
 }
