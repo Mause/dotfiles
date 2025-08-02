@@ -10,3 +10,6 @@
 [submodule "local/share/gh/extensions/gh-install"]
 	path = local/share/gh/extensions/gh-install
 	url = https://github.com/redraw/gh-install
+[submodule "config/tmux/plugins/tpm"]
+	path = config/tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
