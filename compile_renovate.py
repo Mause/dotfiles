@@ -73,6 +73,11 @@ def get_all_deps():
     return deps
 
 
+class Encoder(json5.lib.JSON5Encoder):
+    def is_reserved_word(self, word):
+        return False if word == "extends" else super().is_reserved_word(word)
+
+
 def main():
     template = "".join(
         [
@@ -103,7 +108,13 @@ def main():
     custom["depNameTemplate"] = res
 
     with renovate_json.open("w") as fh:
-        json5.dump(renovate, fh, indent=2, quote_style=json5.QuoteStyle.PREFER_SINGLE)
+        json5.dump(
+            renovate,
+            fh,
+            indent=2,
+            quote_style=json5.QuoteStyle.PREFER_SINGLE,
+            cls=Encoder,
+        )
 
 
 if __name__ == "__main__":
