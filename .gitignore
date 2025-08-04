@@ -9,3 +9,4 @@ cargo/registry
 local/pipx/venvs
 local/share/virtualenv
 local/state/pnpm
+config/yarn/global
