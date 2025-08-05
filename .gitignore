@@ -5,9 +5,11 @@ Trolltech.conf
 *config/dconf/user*
 fish_history*
 fishd*
-cargo/registry
-cargo/git
+cargo/
+!cargo/config.toml
 local/pipx/venvs
 local/share/virtualenv
 local/state/pnpm
 config/yarn/global
+config/Code/Cache
+config/Code/CachedData
