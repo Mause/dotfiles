@@ -1,6 +1,10 @@
 return {
   "josephburgess/nvumi",
-  dependencies = { "folke/snacks.nvim" },
+  dependencies = { {
+    "folke/snacks.nvim",
+    lazy = false,
+    priority = 1000,
+  } },
   opts = {
     virtual_text = "newline", -- or "inline"
     prefix = " 🚀 ", -- prefix shown before the output
