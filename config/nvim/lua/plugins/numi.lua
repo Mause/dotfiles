@@ -4,6 +4,10 @@ return {
     "folke/snacks.nvim",
     lazy = false,
     priority = 1000,
+    ---@type snacks.Config
+    opts = {
+      lazygit = {}
+    }
   } },
   opts = {
     virtual_text = "newline", -- or "inline"
