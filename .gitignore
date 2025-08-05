@@ -6,6 +6,7 @@ Trolltech.conf
 fish_history*
 fishd*
 cargo/registry
+cargo/git
 local/pipx/venvs
 local/share/virtualenv
 local/state/pnpm
