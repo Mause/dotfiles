@@ -9,7 +9,7 @@ cargo/
 !cargo/config.toml
 local/pipx/venvs
 local/share/virtualenv
-local/state/pnpm
+local/share/pnpm
 config/yarn/global
 config/Code/Cache
 config/Code/CachedData
