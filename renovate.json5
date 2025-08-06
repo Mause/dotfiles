@@ -4,19 +4,10 @@
     'config:recommended',
   ],
   configMigration: true,
-  prBodyDefinitions: {
-    'Compare changes': '[Compare changes]({{{depName}}}/compare/{{{currentDigest}}}...{{{newDigest}}})',
-  },
   packageRules: [
     {
       matchManagers: [
         'custom.regex',
-      ],
-      prBodyColumns: [
-        'Package',
-        'Compare changes',
-        'Update',
-        'Change',
       ],
       changelogUrl: "{{depName}}/compare/{{currentDigest}}..{{newDigest}}"
     },
