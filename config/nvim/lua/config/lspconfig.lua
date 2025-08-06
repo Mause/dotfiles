@@ -3,12 +3,12 @@
 -- check if server exists before setting the path
 local filename = "/data/data/com.termux/files/usr/bin/typescript-language-server";
 if vim.uv.fs_stat(filename) then
-    vim.lsp.config('ts_ls', {
-        cmd = {"node", filename, "--stdio"}
-    })
+  vim.lsp.config('ts_ls', {
+    cmd = { "node", filename, "--stdio" }
+  })
 end
 
-vim.lsp.enable({'ty', 'ts_ls', 'ruff'})
+vim.lsp.enable({ 'ty', 'ts_ls', 'ruff' })
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
@@ -40,5 +40,3 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end, opts)
   end,
 })
-
-
