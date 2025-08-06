@@ -2,11 +2,12 @@
 # dependencies = ['slpp', 'json5', 'jsonata-python', 'pdbpp', 'pybars3', 'more_itertools']
 # ///
 
-import jsonata
-from pybars import Compiler
-import json5
-from more_itertools import unique
 from pathlib import Path
+
+import json5
+import jsonata
+from more_itertools import unique
+from pybars import Compiler
 from slpp import slpp
 
 renovate_json = Path("renovate.json5")
