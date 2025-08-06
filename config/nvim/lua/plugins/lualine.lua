@@ -1,8 +1,16 @@
+local function get_lsp_status()
+  return require('lsp-progress').progress()
+end
+
 return {{
   "nvim-lualine/lualine.nvim",
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   opts = function(_, opts)
+    ---@class lualine.Config
     opts = require('lualine').get_config()
+    table.insert(opts.sections.lualine_c, {
+      get_lsp_status
+    })
     local trouble = require("trouble")
     local symbols = trouble.statusline({
       mode = "lsp_document_symbols",

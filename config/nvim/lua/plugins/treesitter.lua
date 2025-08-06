@@ -10,4 +10,5 @@ return {
 	},
 	{ 'github/copilot.vim' },
   { 'nvim-tree/nvim-tree.lua', opts = {}, dependencies = { 'nvim-tree/nvim-web-devicons' } },
+  { 'linrongbin16/lsp-progress.nvim', opts = {} },
 }
