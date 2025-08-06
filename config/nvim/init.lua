@@ -11,3 +11,4 @@ require("config.lspconfig")
 require('config.treesitter')
 
 vim.keymap.set("n", "<leader>on", "<CMD>Nvumi<CR>", { desc = "[O]pen [N]vumi" })
+vim.keymap.set("n", "<leader>lg", "<CMD>:lua Snacks.lazygit()<CR>", { desc = "[L]azy[G]it" })
