@@ -1,11 +1,11 @@
 # /// script
-# dependencies = ['slpp', 'json5', 'jsonata-python', 'pdbpp', 'pybars3']
+# dependencies = ['slpp', 'json5', 'jsonata-python', 'pdbpp', 'pybars3', 'more_itertools']
 # ///
 
 import jsonata
 from pybars import Compiler
 import json5
-
+from more_itertools import unique
 from pathlib import Path
 from slpp import slpp
 
@@ -69,8 +69,7 @@ def get_all_deps():
         for dep in get_deps(filename)
     ]
     deps.append({"owner": "folke", "name": "lazy.nvim"})
-    deps.sort(key=lambda x: x["name"])
-    return deps
+    return list(unique(deps, key=lambda x: x["name"]))
 
 
 class Encoder(json5.lib.JSON5Encoder):
