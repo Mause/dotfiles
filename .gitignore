@@ -7,9 +7,15 @@ fish_history*
 fishd*
 cargo/
 !cargo/config.toml
+local/bin
 local/pipx/venvs
+local/pipx/.cache
+local/pipx/shared
+local/share/pypoetry/venv
 local/share/virtualenv
+local/share/nvim
 local/share/pnpm
+local/state
 config/yarn/global
 config/Code/Cache
 config/Code/CachedData
@@ -20,3 +26,5 @@ config/zed/.*
 config/pudb/saved-breakpoints-*
 config/pudb/internal-cmdline-history.txt
 .DS_Store
+config/Chrome
+config/chromium
