@@ -13,3 +13,10 @@ local/state/pnpm
 config/yarn/global
 config/Code/Cache
 config/Code/CachedData
+config/zed/conversations
+config/zed/embeddings
+config/zed/prompts
+config/zed/.*
+config/pudb/saved-breakpoints-*
+config/pudb/internal-cmdline-history.txt
+.DS_Store
