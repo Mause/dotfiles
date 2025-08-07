@@ -26,6 +26,7 @@ return { {
       symbols.get,
       cond = symbols.has,
     })
+    table.insert(opts.sections.lualine_c, 'lsp_status')
     return opts
   end,
 } }
