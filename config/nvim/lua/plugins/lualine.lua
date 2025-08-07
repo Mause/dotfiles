@@ -26,6 +26,6 @@ return { {
       symbols.get,
       cond = symbols.has,
     })
-    require('lualine.config').apply_configuration(opts)
+    return opts
   end,
 } }
