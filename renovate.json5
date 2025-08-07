@@ -9,7 +9,7 @@
       matchManagers: [
         'custom.regex',
       ],
-      changelogUrl: "{{depName}}/compare/{{currentDigest}}...{{newDigest}}"
+      changelogUrl: '{{depName}}/compare/{{currentDigest}}...{{newDigest}}',
     },
   ],
   customManagers: [
