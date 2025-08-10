@@ -14,5 +14,7 @@ return {
       vim.notify = require('notify')
     end,
   },
-  'pynappo/git-notify.nvim',
+  {
+    'pynappo/git-notify.nvim',
+  }
 }
