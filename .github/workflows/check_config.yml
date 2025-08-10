@@ -7,4 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: pip install pipx
-      - run: pipx run compile_renovate.py
+      - uses: nickcharlton/diff-check@main
+        with:
+          command: |
+            pipx run compile_renovate.py
