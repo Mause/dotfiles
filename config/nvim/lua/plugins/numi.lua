@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   "josephburgess/nvumi",
   dependencies = { {
@@ -9,6 +10,9 @@ return {
       lazygit = {}
     }
   } },
+  keys = {
+    { "<leader>on", "<CMD>Nvumi<CR>", { desc = "[O]pen [N]vumi" } },
+  },
   opts = {
     virtual_text = "newline", -- or "inline"
     prefix = " 🚀 ", -- prefix shown before the output
