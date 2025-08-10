@@ -28,3 +28,4 @@ config/pudb/internal-cmdline-history.txt
 .DS_Store
 config/Chrome
 config/chromium
+local/share/heroku/client
