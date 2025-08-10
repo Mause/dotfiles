@@ -4,3 +4,9 @@ repos:
     hooks:
       - id: file-contents-sorter
         files: .gitignore
+  - repo: local
+    hooks:
+      - id: compile_renovate
+        name: compile renovate.json5
+        language: system
+        entry: pipx run compile_renovate.py
