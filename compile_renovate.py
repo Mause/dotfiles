@@ -36,13 +36,13 @@ def add_owner(dep: dict):
 
 
 def get_deps(filename):
-    print('loading', filename)
+    print("loading", filename)
     with filename.open() as fh:
         lua = fh.read()
 
     for idx, line in enumerate(lua.splitlines()):
-        if line.startswith('return '):
-            lua = '\n'.join( lua.splitlines()[idx:])
+        if line.startswith("return "):
+            lua = "\n".join(lua.splitlines()[idx:])
             break
 
     contents = slpp.decode(lua[len("return") :])
