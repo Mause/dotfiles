@@ -26,7 +26,7 @@ local/lib/python*
 local/pipx/.cache
 local/pipx/shared
 local/pipx/venvs
-local/share/JetBrains/Toolbox/apps
+local/share/JetBrains
 local/share/Trash
 local/share/heroku/client
 local/share/nvim
