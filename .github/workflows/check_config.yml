@@ -1,6 +1,6 @@
 on: push
 
-runs:
+jobs:
   check:
     runs-on: ubuntu-latest
 
