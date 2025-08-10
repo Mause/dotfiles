@@ -1,0 +1,10 @@
+on: push
+
+runs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+      - run: pip install pipx
+      - run: pipx run compile_renovate.py
