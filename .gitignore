@@ -1,13 +1,12 @@
 !cargo/config.toml
+!config/Code/User/*.json
 *config/dconf/user*
 *generated_completions*
 .DS_Store
 Trolltech.conf
 cargo/
 config/Chrome
-config/Code/Cache
-config/Code/CachedData
-config/Code/User
+config/Code
 config/JetBrains
 config/chromium
 config/discord
