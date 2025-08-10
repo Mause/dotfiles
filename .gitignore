@@ -30,6 +30,7 @@ local/share/JetBrains/Toolbox/apps
 local/share/Trash
 local/share/heroku/client
 local/share/nvim
+local/share/nvm
 local/share/pnpm
 local/share/pypoetry/venv
 local/share/virtualenv
