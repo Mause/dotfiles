@@ -116,12 +116,14 @@ def main():
     custom["depNameTemplate"] = res
 
     with renovate_json.open("w") as fh:
-        json5.dump(
-            renovate,
-            fh,
-            indent=2,
-            quote_style=json5.QuoteStyle.PREFER_SINGLE,
-            cls=Encoder,
+        fh.write(
+            json5.dumps(
+                renovate,
+                indent=2,
+                quote_style=json5.QuoteStyle.PREFER_SINGLE,
+                cls=Encoder,
+            )
+            + "\n"
         )
 
 
