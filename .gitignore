@@ -7,6 +7,8 @@ cargo/
 config/Chrome
 config/Code/Cache
 config/Code/CachedData
+config/Code/User
+config/JetBrains
 config/chromium
 config/pudb/internal-cmdline-history.txt
 config/pudb/saved-breakpoints-*
@@ -20,9 +22,11 @@ fish_history*
 fish_read_history
 fishd*
 local/bin
+local/lib/python*
 local/pipx/.cache
 local/pipx/shared
 local/pipx/venvs
+local/share/Trash
 local/share/heroku/client
 local/share/nvim
 local/share/pnpm
