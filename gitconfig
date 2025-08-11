@@ -31,6 +31,7 @@
 	showForcedUpdates = true
 [merge]
 	conflictStyle = zdiff3
+	tool = nvimdiff
 [rebase]
 	autoSquash = true
 [commit]
@@ -42,3 +43,5 @@
 	process = git-lfs filter-process
 [interactive]
 	diffFilter = diff-so-fancy --patch
+[diff]
+	tool = nvimdiff
