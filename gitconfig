@@ -45,3 +45,7 @@
 	diffFilter = diff-so-fancy --patch
 [diff]
 	tool = nvimdiff
+[git-town]
+	new-branch-type=feature
+	sync-feature-strategy=rebase
+	sync-prototype-strategy=rebase
