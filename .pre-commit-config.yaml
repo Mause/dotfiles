@@ -8,8 +8,10 @@ repos:
     hooks:
       - id: compile_renovate
         name: compile renovate.json5
-        language: system
+        language: python
         entry: pipx run compile_renovate.py
+        additional_dependencies:
+          - pipx
   - repo: https://github.com/JohnnyMorganz/StyLua
     rev: v2.1.0
     hooks:
