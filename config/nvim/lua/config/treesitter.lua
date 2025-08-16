@@ -1,5 +1,5 @@
 -- Treesitter Plugin Setup
-require('nvim-treesitter.configs').setup {
+require("nvim-treesitter.configs").setup({
   ensure_installed = {
     "rust",
     "toml",
@@ -7,7 +7,7 @@ require('nvim-treesitter.configs').setup {
     "markdown",
     "markdown_inline",
     "vim",
-    "vimdoc"
+    "vimdoc",
   },
   auto_install = true,
   highlight = {
@@ -20,4 +20,4 @@ require('nvim-treesitter.configs').setup {
     extended_mode = true,
     max_file_lines = nil,
   },
-}
+})

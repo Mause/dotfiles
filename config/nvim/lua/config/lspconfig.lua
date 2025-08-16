@@ -3,12 +3,30 @@
 -- check if server exists before setting the path
 local filename = "/data/data/com.termux/files/usr/bin/typescript-language-server"
 if vim.uv.fs_stat(filename) then
-  vim.lsp.config('ts_ls', {
-    cmd = { "node", filename, "--stdio" }
+  vim.lsp.config("ts_ls", {
+    cmd = { "node", filename, "--stdio" },
   })
 end
 
-vim.lsp.enable({ 'ty', 'ts_ls', 'ruff' })
+vim.lsp.config("jsonls", {
+  cmd = {
+    vim.fn.stdpath("data") .. "/mason/bin/vscode-json-language-server",
+    "--stdio",
+  },
+  settings = {
+    json = {
+      schemas = require("schemastore").json.schemas({
+        select = {
+          "Renovate",
+          "GitHub Workflow Template Properties",
+        },
+      }),
+      validate = { enable = true },
+    },
+  },
+})
+
+vim.lsp.enable({ "ty", "ts_ls", "ruff" })
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
