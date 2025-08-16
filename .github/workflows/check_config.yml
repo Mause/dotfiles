@@ -1,3 +1,4 @@
+name: Check config
 on: push
 
 jobs:
@@ -7,8 +8,13 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - run: pip install pipx
+      - run: |
+          sudo apt update
+          sudo apt install neovim
       - uses: nickcharlton/diff-check@main
         with:
           command: |
             pipx run compile_renovate.py
+            nvim --headless +qa
+            nvim --headless "+Lazy! sync" +qa
             git -c color.ui=always diff --word-diff
