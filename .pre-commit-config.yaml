@@ -9,9 +9,8 @@ repos:
       - id: compile_renovate
         name: compile renovate.json5
         language: python
-        entry: pipx run --global compile_renovate.py
-        additional_dependencies:
-          - pipx
+        entry: python3 compile_renovate.py
+        additional_dependencies: ['slpp', 'json5', 'jsonata-python', 'pdbpp', 'pybars3', 'more_itertools']
   - repo: https://github.com/JohnnyMorganz/StyLua
     rev: v2.1.0
     hooks:
