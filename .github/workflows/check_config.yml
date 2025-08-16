@@ -11,4 +11,5 @@ jobs:
         with:
           command: |
             pipx run compile_renovate.py
+            nvim --headless "+Lazy! sync" +qa
             git -c color.ui=always diff --word-diff
