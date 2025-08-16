@@ -8,6 +8,9 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - run: pip install pipx
+      - run: |
+          sudo apt update
+          sudo apt install neovim
       - uses: nickcharlton/diff-check@main
         with:
           command: |
