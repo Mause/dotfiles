@@ -8,6 +8,24 @@ if vim.uv.fs_stat(filename) then
   })
 end
 
+vim.lsp.config('jsonls', {
+  cmd = {
+    vim.fn.stdpath('data') .. '/mason/bin/vscode-json-language-server',
+    '--stdio'
+  },
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas {
+        select = {
+          'Renovate',
+          'GitHub Workflow Template Properties'
+        }
+      },
+      validate = { enable = true },
+    }
+  }
+})
+
 vim.lsp.enable({ 'ty', 'ts_ls', 'ruff' })
 
 -- Use LspAttach autocommand to only map the following keys

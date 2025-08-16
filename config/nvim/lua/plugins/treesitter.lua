@@ -3,6 +3,7 @@ return {
   { 'williamboman/mason.nvim' },
   { 'williamboman/mason-lspconfig.nvim' },
   { 'neovim/nvim-lspconfig' },
+  { 'b0o/SchemaStore.nvim' },
   {
     'mrcjkb/rustaceanvim',
     version = '^6', -- Recommended
