@@ -11,6 +11,7 @@ repos:
         language: python
         entry: pipx run compile_renovate.py
         additional_dependencies:
+          - virtualenv
           - pipx
   - repo: https://github.com/JohnnyMorganz/StyLua
     rev: v2.1.0
