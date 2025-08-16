@@ -29,6 +29,7 @@ local/pipx/.cache
 local/pipx/shared
 local/pipx/venvs
 local/share/JetBrains
+local/share/NuGet
 local/share/Trash
 local/share/heroku/client
 local/share/nvim
