@@ -1,15 +1,17 @@
 ---@type LazySpec
 return {
   "josephburgess/nvumi",
-  dependencies = { {
-    "folke/snacks.nvim",
-    lazy = false,
-    priority = 1000,
-    ---@type snacks.Config
-    opts = {
-      lazygit = {}
-    }
-  } },
+  dependencies = {
+    {
+      "folke/snacks.nvim",
+      lazy = false,
+      priority = 1000,
+      ---@type snacks.Config
+      opts = {
+        lazygit = {},
+      },
+    },
+  },
   keys = {
     { "<leader>on", "<CMD>Nvumi<CR>", { desc = "[O]pen [N]vumi" } },
   },
@@ -25,6 +27,6 @@ return {
     },
     -- see below for more on custom conversions/functions
     custom_conversions = {},
-    custom_functions = {}
-  }
+    custom_functions = {},
+  },
 }

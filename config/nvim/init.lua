@@ -8,7 +8,7 @@ vim.opt.termguicolors = true
 function dump(filename, obj)
   local test = assert(io.open(filename .. ".json", "w"))
   local result = vim.json.encode(obj)
-  result = vim.system({ 'jq', '--sort-keys' }, { stdin = result }):wait()
+  result = vim.system({ "jq", "--sort-keys" }, { stdin = result }):wait()
   test:write(result.stdout)
   test:close()
 end
@@ -16,6 +16,5 @@ end
 require("config.lazy")
 require("config.mason")
 require("config.lspconfig")
-require('config.treesitter')
-require('config.dap')
-
+require("config.treesitter")
+require("config.dap")

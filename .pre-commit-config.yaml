@@ -10,3 +10,7 @@ repos:
         name: compile renovate.json5
         language: system
         entry: pipx run compile_renovate.py
+  - repo: https://github.com/JohnnyMorganz/StyLua
+    rev: v2.1.0
+    hooks:
+      - id: stylua

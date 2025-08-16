@@ -1,7 +1,7 @@
 return {
   ---@type LazySpec
   {
-    'rcarriga/nvim-notify',
+    "rcarriga/nvim-notify",
     init = function()
       --      require('notify').setup({
       --        background_colour = '#000000',
@@ -11,10 +11,10 @@ return {
       --          return math.floor(vim.o.lines * 0.75)
       --        end,
       --      })
-      vim.notify = require('notify')
+      vim.notify = require("notify")
     end,
   },
   {
-    'pynappo/git-notify.nvim',
-  }
+    "pynappo/git-notify.nvim",
+  },
 }
