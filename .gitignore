@@ -1,5 +1,6 @@
 !cargo/config.toml
 !config/Code/User/*.json
+*.orig
 *config/dconf/user*
 *generated_completions*
 .DS_Store
