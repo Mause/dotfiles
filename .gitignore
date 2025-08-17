@@ -11,6 +11,7 @@ config/Code
 config/JetBrains
 config/chromium
 config/discord
+config/fish/fish_variables
 config/google-chrome
 config/obsidian
 config/pudb/internal-cmdline-history.txt
@@ -29,13 +30,5 @@ local/lib/python*
 local/pipx/.cache
 local/pipx/shared
 local/pipx/venvs
-local/share/JetBrains
-local/share/NuGet
-local/share/Trash
-local/share/heroku/client
-local/share/nvim
-local/share/nvm
-local/share/pnpm
-local/share/pypoetry/venv
-local/share/virtualenv
+local/share
 local/state
