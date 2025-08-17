@@ -11,6 +11,7 @@ config/Code
 config/JetBrains
 config/chromium
 config/discord
+config/fish/fish_variables
 config/google-chrome
 config/obsidian
 config/pudb/internal-cmdline-history.txt
@@ -20,7 +21,6 @@ config/zed/.*
 config/zed/conversations
 config/zed/embeddings
 config/zed/prompts
-config/fish/fish_variables
 fish_history
 fish_history*
 fish_read_history
