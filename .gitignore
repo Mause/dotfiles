@@ -12,6 +12,7 @@ config/JetBrains
 config/chromium
 config/discord
 config/fish/fish_variables
+config/gh/hosts.yml
 config/google-chrome
 config/obsidian
 config/pudb/internal-cmdline-history.txt
