@@ -12,6 +12,8 @@ jobs:
           sudo apt update
           sudo apt install neovim
       - uses: nickcharlton/diff-check@main
+        env:
+          XDG_CONFIG_HOME: ${{ github.workspace }}/config
         with:
           command: |
             pipx run compile_renovate.py
