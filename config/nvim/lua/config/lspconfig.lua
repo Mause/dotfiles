@@ -26,6 +26,19 @@ vim.lsp.config("jsonls", {
   },
 })
 
+vim.lsp.config("ty", {
+  settings = {
+    ty = {
+      experimental = {
+        rename = true,
+      },
+      inlayHints = {
+        variableTypes = true,
+      },
+    },
+  },
+})
+
 vim.lsp.enable({ "ty", "ts_ls", "ruff" })
 
 -- Use LspAttach autocommand to only map the following keys
