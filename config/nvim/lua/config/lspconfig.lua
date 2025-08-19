@@ -39,12 +39,12 @@ vim.lsp.config("ty", {
   },
 })
 
-vim.lsp.config('harper_ls', {
+vim.lsp.config("harper_ls", {
   settings = {
     ["harper-ls"] = {
-      dialect = 'Australian'
-    }
-  }
+      dialect = "Australian",
+    },
+  },
 })
 
 vim.lsp.enable({ "ty", "ts_ls", "ruff" })
