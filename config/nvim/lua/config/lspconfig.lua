@@ -39,6 +39,14 @@ vim.lsp.config("ty", {
   },
 })
 
+vim.lsp.config('harper_ls', {
+  settings = {
+    ["harper-ls"] = {
+      dialect = 'Australian'
+    }
+  }
+})
+
 vim.lsp.enable({ "ty", "ts_ls", "ruff" })
 
 -- Use LspAttach autocommand to only map the following keys
