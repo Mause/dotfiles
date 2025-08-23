@@ -3,6 +3,7 @@ repos:
     rev: v6.0.0
     hooks:
       - id: file-contents-sorter
+        args: [--unique]
         files: .gitignore
   - repo: https://github.com/JohnnyMorganz/StyLua
     rev: v2.1.0

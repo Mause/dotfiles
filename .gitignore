@@ -30,4 +30,5 @@ local/bin
 local/lib/python*
 local/pipx
 local/share
+local/share/heroku/client
 local/state
