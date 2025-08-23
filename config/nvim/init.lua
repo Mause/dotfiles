@@ -18,3 +18,5 @@ require("config.mason")
 require("config.lspconfig")
 require("config.treesitter")
 require("config.dap")
+
+vim.cmd("colorscheme tokyonight")

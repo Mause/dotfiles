@@ -9,6 +9,7 @@ return {
     opts = function(_, opts)
       ---@class lualine.Config
       opts = require("lualine").get_config()
+      opts.options.theme = "tokyonight"
       table.insert(opts.sections.lualine_c, {
         get_lsp_status,
       })
