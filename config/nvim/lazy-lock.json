@@ -1,4 +1,5 @@
 {
+  "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
   "SchemaStore.nvim": { "branch": "main", "commit": "e906ac3ed0bd273781759e7635b5b824393c925c" },
   "blink.cmp": { "branch": "main", "commit": "4e9edba1b1cef1585cc65e54287229e5d34e4df8" },
   "bruno.nvim": { "branch": "main", "commit": "125d23e4df66735f25619b365abaf53d437ae744" },
