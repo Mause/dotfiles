@@ -1,4 +1,4 @@
-local function get_lsp_status()
+local function get_lsp_progress()
   return require("lsp-progress").progress()
 end
 
@@ -11,7 +11,7 @@ return {
       opts = require("lualine").get_config()
       opts.options.theme = "tokyonight"
       table.insert(opts.sections.lualine_c, {
-        get_lsp_status,
+        get_lsp_progress,
       })
       table.insert(opts.sections.lualine_c, {
         "lsp_status",
