@@ -13,7 +13,10 @@ return {
       table.insert(opts.sections.lualine_c, {
         get_lsp_status,
       })
-      table.insert(opts.sections.lualine_c, "lsp_status")
+      table.insert(opts.sections.lualine_c, {
+        "lsp_status",
+        ignore_lsp = { "GitHub Copilot" },
+      })
       return opts
     end,
   },
