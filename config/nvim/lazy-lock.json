@@ -2,7 +2,7 @@
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
   "SchemaStore.nvim": { "branch": "main", "commit": "e906ac3ed0bd273781759e7635b5b824393c925c" },
   "blink.cmp": { "branch": "main", "commit": "4e9edba1b1cef1585cc65e54287229e5d34e4df8" },
-  "bruno.nvim": { "branch": "main", "commit": "125d23e4df66735f25619b365abaf53d437ae744" },
+  "bruno.nvim": { "branch": "main", "commit": "2a6066833ccd4ef23c58886d808dd2df94630fe2" },
   "copilot.vim": { "branch": "release", "commit": "f3d66c148aa60ad04c0a21d3e0a776459de09eb2" },
   "git-notify.nvim": { "branch": "main", "commit": "85cea43ff032c45706cd8ae5a16578c756e7b28e" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
