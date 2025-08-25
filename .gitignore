@@ -8,6 +8,7 @@ Trolltech.conf
 cargo/
 config/Chrome
 config/Code
+config/Electron
 config/JetBrains
 config/chromium
 config/discord
