@@ -10,6 +10,7 @@ return {
     ---@type snacks.Config
     opts = {
       lazygit = {},
+      input = { enabled = true },
     },
   },
 }
