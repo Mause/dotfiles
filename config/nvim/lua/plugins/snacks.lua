@@ -1,5 +1,5 @@
 return {
-  ---@type LazySpec
+  ---@type lazy.LazySpec
   {
     "folke/snacks.nvim",
     lazy = false,
@@ -13,7 +13,27 @@ return {
       lazygit = {},
       input = { enabled = true },
       terminal = {},
-      dashboard = {},
+      dashboard = {
+        sections = {
+          {
+            section = "header",
+          },
+          { section = "keys", padding = 2 },
+          {
+            section = "startup",
+          },
+          function()
+            ---@type snacks.dashboard.Text
+            return {
+              text = {
+                { "Neovim version: ", hl = "footer" },
+                { tostring(vim.version()), hl = "special" },
+              },
+              align = "center",
+            }
+          end,
+        },
+      },
     },
   },
 }
