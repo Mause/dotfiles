@@ -13,6 +13,7 @@ return {
       lazygit = {},
       input = { enabled = true },
       terminal = {},
+      dashboard = {},
     },
   },
 }
