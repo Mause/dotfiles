@@ -1,9 +1,14 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.4.0
+    rev: v6.0.0
     hooks:
       - id: file-contents-sorter
+        args: [--unique]
         files: .gitignore
+  - repo: https://github.com/JohnnyMorganz/StyLua
+    rev: v2.1.0
+    hooks:
+      - id: stylua
   - repo: local
     hooks:
       - id: compile_renovate
@@ -11,7 +16,3 @@ repos:
         language: python
         entry: python3 compile_renovate.py
         additional_dependencies: ['slpp', 'json5', 'jsonata-python', 'pdbpp', 'pybars3', 'more_itertools']
-  - repo: https://github.com/JohnnyMorganz/StyLua
-    rev: v2.1.0
-    hooks:
-      - id: stylua

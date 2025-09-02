@@ -2,6 +2,10 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.signcolumn = "number"
+
 -- optionally enable 24-bit colour
 vim.opt.termguicolors = true
 
@@ -18,3 +22,5 @@ require("config.mason")
 require("config.lspconfig")
 require("config.treesitter")
 require("config.dap")
+
+vim.cmd("colorscheme tokyonight")
