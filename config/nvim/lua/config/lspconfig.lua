@@ -65,6 +65,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
 
     local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
+
+    if client:supports_method("textDocument/inlayHint") then
+      vim.lsp.inlay_hint.enable(true, { bufno = ev.buf })
+    end
+
     if
       not client:supports_method("textDocument/willSaveWaitUntil")
       and client:supports_method("textDocument/formatting")
