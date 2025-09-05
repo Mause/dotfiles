@@ -6,7 +6,7 @@
 	url = https://github.com/gennaro-tedesco/gh-f
 [submodule "local/share/gh/extensions/gh-install"]
 	path = local/share/gh/extensions/gh-install
-	url = https://github.com/redraw/gh-install
+	url = https://github.com/Mause/gh-install
 [submodule "config/tmux/plugins/tpm"]
 	path = config/tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
