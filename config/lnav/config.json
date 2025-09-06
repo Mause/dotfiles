@@ -17,6 +17,9 @@
                     }
                 }
             }
+        },
+        "mouse": {
+            "mode": "enabled"
         }
     },
     "log": {
