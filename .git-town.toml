@@ -1,0 +1,20 @@
+# More info around this file at https://www.git-town.com/configuration-file
+
+[branches]
+main = "master"
+
+[create]
+share-new-branches = "no"
+
+[hosting]
+dev-remote = "origin"
+
+[ship]
+delete-tracking-branch = true
+strategy = "api"
+
+[sync]
+perennial-strategy = "ff-only"
+push-hook = true
+tags = true
+upstream = true
