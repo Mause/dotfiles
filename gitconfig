@@ -46,7 +46,6 @@
 [diff]
 	tool = nvimdiff
 [git-town]
-	main-branch=main
 	new-branch-type=feature
 	sync-feature-strategy=rebase
 	sync-prototype-strategy=rebase
