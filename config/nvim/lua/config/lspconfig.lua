@@ -47,7 +47,14 @@ vim.lsp.config("harper_ls", {
   },
 })
 
-vim.lsp.enable({ "ty", "ts_ls", "ruff" })
+vim.lsp.enable({
+  "ty",
+  "ts_ls",
+  "ruff",
+  "tombi",
+  "harper_ls",
+  "emmylua_ls",
+})
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
