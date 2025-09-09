@@ -9,7 +9,15 @@ cargo/
 config/Chrome
 config/Code
 config/Electron
+config/Fiddler Everywhere
+config/GIMP
+config/Google
+config/Insomnia
 config/JetBrains
+config/JetBrains Space
+config/Signal
+config/bruno
+config/cef_user_data
 config/chromium
 config/discord
 config/fish/fish_variables
