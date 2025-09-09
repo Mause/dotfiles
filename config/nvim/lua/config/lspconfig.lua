@@ -54,6 +54,8 @@ vim.lsp.enable({
   "tombi",
   "harper_ls",
   "emmylua_ls",
+  "jsonls",
+  "yamlls",
 })
 
 -- Use LspAttach autocommand to only map the following keys
