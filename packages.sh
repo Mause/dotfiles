@@ -16,3 +16,4 @@ pkg i tmux
 pkg i fish
 pkg i lnav
 pkg i lazygit
+pkg i nodejs
