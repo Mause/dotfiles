@@ -14,3 +14,5 @@ pkg i file
 pkg i which
 pkg i tmux
 pkg i fish
+pkg i lnav
+pkg i lazygit
