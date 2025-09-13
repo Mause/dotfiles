@@ -8,8 +8,6 @@ pkg i libxml2 libxslt
 pkg i diff-so-fancy
 pkg i uv
 pkg i gh direnv chafa
-pkg i gh direnv
-pkg i gh direnc
 pkg i file
 pkg i which
 pkg i tmux
