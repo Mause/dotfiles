@@ -54,6 +54,8 @@ vim.lsp.enable({
   "tombi",
   "harper_ls",
   "emmylua_ls",
+  "jsonls",
+  "yamlls",
 })
 
 -- Use LspAttach autocommand to only map the following keys
@@ -64,14 +66,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- Enable completion triggered by <c-x><c-o>
     vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
-    local client = vim.lsp.get_client_by_id(ev.data.client_id)
-    if client then
-      if client.name ~= "lua_ls" and client.server_capabilities.documentSymbolProvider then
-        require("nvim-navic").attach(client, ev.buf)
-      end
-    end
-
     local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
+    if client.name ~= "lua_ls" and client:supports_method("textDocument/documentSymbol") then
+      require("nvim-navic").attach(client, ev.buf)
+    end
 
     if client:supports_method("textDocument/inlayHint") then
       vim.lsp.inlay_hint.enable(true, { bufno = ev.buf })
