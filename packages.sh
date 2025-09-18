@@ -19,6 +19,7 @@ pkg i lnav
 pkg i lazygit
 pkg i nodejs
 pkg i rust rust-analyzer
+pkg i fzf crystal
 cargo install harper-ls --locked
 cargo install emmylua_ls --locked
 cargo install lucky_commit --locked --no-default-features
