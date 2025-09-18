@@ -1,3 +1,5 @@
+set -x otrace
+
 pkg i neovim git git-lfs
 pkg i sccache
 pkg i ripgrep
