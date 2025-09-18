@@ -8,6 +8,8 @@ require("nvim-treesitter.configs").setup({
     "markdown_inline",
     "vim",
     "vimdoc",
+    "diff",
+    "gitcommit",
   },
   auto_install = true,
   highlight = {
