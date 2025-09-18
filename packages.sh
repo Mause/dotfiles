@@ -2,6 +2,7 @@ set -x otrace
 
 pkg i neovim git git-lfs
 pkg i clang make
+pkg i binutils-is-llvm
 pkg i sccache
 pkg i ripgrep
 pkg i gitoxide
