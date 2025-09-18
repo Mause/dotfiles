@@ -17,7 +17,7 @@ pkg i tmux
 pkg i fish
 pkg i lnav
 pkg i lazygit
-pkg i nodejs
+pkg i nodejs yarn
 pkg i rust rust-analyzer
 pkg i fzf crystal
 cargo install harper-ls --locked
