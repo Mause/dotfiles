@@ -1,4 +1,4 @@
-pkg i neovim git
+pkg i neovim git git-lfs
 pkg i sccache
 pkg i ripgrep
 pkg i gitoxide
