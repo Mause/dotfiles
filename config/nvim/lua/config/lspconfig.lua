@@ -56,6 +56,9 @@ vim.lsp.enable({
   "emmylua_ls",
   "jsonls",
   "yamlls",
+  "gh_actions_ls",
+  "fish_lsp",
+  "graphql",
 })
 
 -- Use LspAttach autocommand to only map the following keys
