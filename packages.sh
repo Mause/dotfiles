@@ -21,6 +21,7 @@ pkg i lazygit
 pkg i nodejs yarn
 pkg i rust rust-analyzer
 pkg i fzf crystal
+cargo install --git https://github.com/tombi-toml/tombi tombi-cli --locked
 cargo install harper-ls --locked
 cargo install emmylua_ls --locked
 cargo install lucky_commit --locked --no-default-features
