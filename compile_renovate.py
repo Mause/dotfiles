@@ -87,7 +87,7 @@ class Encoder(json5.lib.JSON5Encoder):
 
 
 def main():
-    template = "".join(
+    template = "\n".join(
         [
             "{{# if (equals depName '%s') }}%s{{/if}}" % (dep["name"], dep["owner"])
             for dep in get_all_deps()
