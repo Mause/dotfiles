@@ -17,7 +17,7 @@ return {
   { "nvim-tree/nvim-tree.lua", opts = {}, dependencies = { "nvim-tree/nvim-web-devicons" } },
   { "numToStr/Comment.nvim", opts = {} },
   {
-    'nvimtools/none-ls.nvim',
+    "nvimtools/none-ls.nvim",
     opts = function(_, opts)
       local nls = require("null-ls")
       opts.sources = opts.sources or {}
@@ -25,5 +25,5 @@ return {
         nls.builtins.formatting.prettierd,
       })
     end,
-  }
+  },
 }
