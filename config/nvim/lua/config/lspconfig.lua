@@ -59,6 +59,7 @@ vim.lsp.enable({
   "gh_actions_ls",
   "fish_lsp",
   "graphql",
+  "none-ls",
 })
 
 -- Use LspAttach autocommand to only map the following keys

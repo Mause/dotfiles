@@ -16,4 +16,14 @@ return {
   },
   { "nvim-tree/nvim-tree.lua", opts = {}, dependencies = { "nvim-tree/nvim-web-devicons" } },
   { "numToStr/Comment.nvim", opts = {} },
+  {
+    'nvimtools/none-ls.nvim',
+    opts = function(_, opts)
+      local nls = require("null-ls")
+      opts.sources = opts.sources or {}
+      vim.list_extend(opts.sources, {
+        nls.builtins.formatting.prettierd,
+      })
+    end,
+  }
 }
