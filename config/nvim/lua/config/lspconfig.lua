@@ -79,7 +79,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.lsp.inlay_hint.enable(true, { bufno = bufnr })
     end
 
-
     function do_format()
       vim.lsp.buf.format({
         bufnr = bufnr,
