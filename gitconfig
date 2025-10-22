@@ -56,3 +56,5 @@
 	smtpencryption = ssl
 	smtpserverport = 465
 	annotate = yes
+[mergetool]
+	keepBackup = false
