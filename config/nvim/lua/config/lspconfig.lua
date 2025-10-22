@@ -79,19 +79,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.lsp.inlay_hint.enable(true, { bufno = bufnr })
     end
 
-    function do_format()
-      vim.lsp.buf.format({
-        bufnr = bufnr,
-        id = client.id,
-        timeout_ms = 1000,
-        filter = function(format_client)
-          if format_client.name == "ts_ls" then
-            return false
-          else
-            return true
-          end
-        end,
-      })
+    function do_format(format_client)
+      if format_client.name == "ts_ls" then
+        return false
+      else
+        return true
+      end
     end
 
     if
@@ -102,7 +95,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("my.lsp", { clear = false }),
         buffer = bufnr,
         callback = function()
-          do_format()
+          vim.lsp.buf.format({
+            bufnr = bufnr,
+            id = client.id,
+            timeout_ms = 1000,
+            filter = do_format,
+          })
         end,
       })
     end
@@ -125,7 +123,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
     vim.keymap.set("n", "<space>f", function()
-      do_format()
+      vim.lsp.buf.format({
+        bufnr = bufnr,
+        id = client.id,
+        async = true,
+        filter = do_format,
+      })
     end, opts)
   end,
 })
