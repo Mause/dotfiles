@@ -69,13 +69,22 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- Enable completion triggered by <c-x><c-o>
     vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
 
+    local bufnr = ev.buf
     local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
     if client.name ~= "lua_ls" and client:supports_method("textDocument/documentSymbol") then
-      require("nvim-navic").attach(client, ev.buf)
+      require("nvim-navic").attach(client, bufnr)
     end
 
     if client:supports_method("textDocument/inlayHint") then
-      vim.lsp.inlay_hint.enable(true, { bufno = ev.buf })
+      vim.lsp.inlay_hint.enable(true, { bufno = bufnr })
+    end
+
+    function do_format(format_client)
+      if format_client.name == "ts_ls" then
+        return false
+      else
+        return true
+      end
     end
 
     if
@@ -84,16 +93,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
     then
       vim.api.nvim_create_autocmd("BufWritePre", {
         group = vim.api.nvim_create_augroup("my.lsp", { clear = false }),
-        buffer = ev.buf,
+        buffer = bufnr,
         callback = function()
-          vim.lsp.buf.format({ bufnr = ev.buf, id = client.id, timeout_ms = 1000 })
+          vim.lsp.buf.format({
+            bufnr = bufnr,
+            id = client.id,
+            timeout_ms = 1000,
+            filter = do_format,
+          })
         end,
       })
     end
 
     -- Buffer local mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
-    local opts = { buffer = ev.buf }
+    local opts = { buffer = bufnr }
     vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
@@ -109,7 +123,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
     vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
     vim.keymap.set("n", "<space>f", function()
-      vim.lsp.buf.format({ async = true })
+      vim.lsp.buf.format({ async = true, filter = do_format })
     end, opts)
   end,
 })
