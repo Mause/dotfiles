@@ -33,10 +33,12 @@ return {
             { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
             { section = "startup" },
             function()
-              ---@type snacks.dashboard.Text
+              ---@type snacks.dashboard.Section
               return {
                 text = {
+                  ---@type snacks.dashboard.Text
                   { "Neovim version: ", hl = "footer" },
+                  ---@type snacks.dashboard.Text
                   { tostring(vim.version()), hl = "special" },
                 },
                 align = "center",
