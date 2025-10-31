@@ -1,3 +1,20 @@
+function is_github_repo()
+  local stdout = vim
+    .system({
+      "git",
+      "remote",
+      "-v",
+    })
+    :wait().stdout
+
+  if stdout == nil then
+    return false
+  end
+
+  local index = stdout:find("github.com")
+  return index ~= nil
+end
+
 return {
   ---@type lazy.LazySpec
   {
@@ -72,6 +89,59 @@ return {
               ttl = 5 * 60,
               indent = 3,
             },
+            function()
+              local in_git = Snacks.git.get_root() ~= nil
+              local cmds = {
+                {
+                  title = "Notifications",
+                  cmd = "gh notify -s -a -n5",
+                  action = function()
+                    vim.ui.open("https://github.com/notifications")
+                  end,
+                  key = "n",
+                  icon = " ",
+                  height = 5,
+                  enabled = true,
+                },
+                {
+                  title = "Open Issues",
+                  cmd = "gh issue list -L 3",
+                  key = "i",
+                  action = function()
+                    vim.fn.jobstart("gh issue list --web", { detach = true })
+                  end,
+                  enabled = is_github_repo,
+                  icon = " ",
+                  height = 7,
+                },
+                {
+                  icon = " ",
+                  title = "Open PRs",
+                  cmd = "gh pr list -L 3",
+                  key = "P",
+                  action = function()
+                    vim.fn.jobstart("gh pr list --web", { detach = true })
+                  end,
+                  enabled = is_github_repo,
+                  height = 7,
+                },
+                {
+                  icon = " ",
+                  title = "Git Status",
+                  cmd = "git --no-pager diff --stat -B -M -C",
+                  height = 10,
+                },
+              }
+              return vim.tbl_map(function(cmd)
+                return vim.tbl_extend("force", {
+                  section = "terminal",
+                  enabled = in_git,
+                  padding = 1,
+                  ttl = 5 * 60,
+                  indent = 3,
+                }, cmd)
+              end, cmds)
+            end,
           },
         },
       },
