@@ -44,13 +44,18 @@ return {
             end,
           },
           {
-            pane = 2,
+            pane = 3,
             {
-              section = "terminal",
-              cmd = "chafa ~/Downloads/R013_C039_F01@2x.png --format symbols --symbols vhalf --size 60x17 --stretch", --; sleep .1",
-              height = 17,
+              icon = " ",
+              desc = "Browse Repo",
               padding = 1,
-              ttl = 5 * 60,
+              key = "b",
+              action = function()
+                Snacks.gitbrowse()
+              end,
+              enabled = function()
+                return Snacks.git.get_root() ~= nil
+              end,
             },
             {
               icon = " ",
