@@ -58,3 +58,5 @@
 	annotate = yes
 [mergetool]
 	keepBackup = false
+[rerere]
+	enabled = true
