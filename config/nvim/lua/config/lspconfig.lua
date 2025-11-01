@@ -47,6 +47,13 @@ vim.lsp.config("harper_ls", {
   },
 })
 
+vim.lsp.config("jdtls", {
+  cmd_env = {
+    JDTLS_JVM_ARGS = "-javaagent:"
+      .. vim.fn.expand("$HOME/.m2/repository/org/projectlombok/lombok/1.18.40/lombok-1.18.40.jar"),
+  },
+})
+
 vim.lsp.enable({
   "ty",
   "ts_ls",
@@ -59,6 +66,7 @@ vim.lsp.enable({
   "gh_actions_ls",
   "fish_lsp",
   "graphql",
+  "jdtls",
 })
 
 -- Use LspAttach autocommand to only map the following keys
