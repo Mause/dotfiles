@@ -3,7 +3,9 @@ return {
     "mrded/nvim-lsp-notify",
     requires = { "rcarriga/nvim-notify" },
     config = function()
-      require("lsp-notify").setup({})
+      require("lsp-notify").setup({
+        excludes = { "jdtls" }
+      })
     end,
   },
 }
