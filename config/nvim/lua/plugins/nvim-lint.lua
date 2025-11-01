@@ -20,6 +20,7 @@ return {
       }, -- list of arguments. Can contain functions with zero arguments that will be evaluated once the linter is used.
       stream = "both", -- ('stdout' | 'stderr' | 'both') configure the stream to which the linter outputs the linting result.
       ignore_exitcode = false, -- set this to true if the linter exits with a code != 0 and that's considered normal.
+      parser = require('lint.parser').from_pattern(pattern, groups, severity_map, defaults, opts)
     }
     lint.linters_by_ft = {
       ["yaml.ghaction"] = { "actionlint" },
