@@ -7,7 +7,9 @@ return {
     },
     lazy = false,
     config = function()
-      require("refactoring").setup({})
+      require("refactoring").setup({
+        show_success_message = true,
+      })
       require("telescope").load_extension("refactoring")
     end,
     keys = {
