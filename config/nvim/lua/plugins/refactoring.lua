@@ -25,25 +25,30 @@ return {
       -- statement (or set two remaps for either one). This remap must be made in normal mode.
       {
         "<leader>rp",
-        function() require('refactoring').debug.printf({ below = false }) end
-        ,
+        function()
+          require("refactoring").debug.printf({ below = false })
+        end,
         mode = "n",
       },
 
       -- Print var
       {
         "<leader>rv",
-        function() require('refactoring').debug.print_var() end,
+        function()
+          require("refactoring").debug.print_var()
+        end,
         -- Supports both visual and normal mode
         mode = { "x", "n" },
       },
 
       {
         "<leader>rc",
-        function() require('refactoring').debug.cleanup({}) end,
+        function()
+          require("refactoring").debug.cleanup({})
+        end,
         -- Supports only normal mode
         mode = "n",
-      }
+      },
     },
   },
 }
