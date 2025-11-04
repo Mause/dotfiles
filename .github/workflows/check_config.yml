@@ -23,7 +23,7 @@ jobs:
       - name: clean
         run: nvim --headless "+Lazy! clean" +qa
       - name: lsp
-        run: nvim --headless "+LspInfo!" +qa
+        run: nvim --headless "+LspInfo" +qa
       - uses: nickcharlton/diff-check@main
         with:
           command: |
