@@ -5,6 +5,21 @@ local filename = "/data/data/com.termux/files/usr/bin/typescript-language-server
 if vim.uv.fs_stat(filename) then
   vim.lsp.config("ts_ls", {
     cmd = { "node", filename, "--stdio" },
+    settings = {
+      typescript = {
+        inlayHints = {
+          -- You can set this to 'all' or 'literals' to enable more hints
+          includeInlayParameterNameHints = "none", -- 'none' | 'literals' | 'all'
+          includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+          includeInlayFunctionParameterTypeHints = false,
+          includeInlayVariableTypeHints = false,
+          includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+          includeInlayPropertyDeclarationTypeHints = false,
+          includeInlayFunctionLikeReturnTypeHints = true,
+          includeInlayEnumMemberValueHints = true,
+        },
+      },
+    },
   })
 end
 
