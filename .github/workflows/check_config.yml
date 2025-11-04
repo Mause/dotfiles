@@ -5,25 +5,25 @@ jobs:
   check:
     runs-on: ubuntu-latest
 
+    env:
+      XDG_CONFIG_HOME: ${{ github.workspace }}/config
+
     steps:
       - uses: actions/checkout@v5
       - run: pip install pipx
       - run: |
           sudo apt update
           sudo apt install neovim
+      - run: pipx run compile_renovate.py
+      - name: setup
+        run: nvim --headless +qa
+      - name: restore
+        run: nvim --headless "+Lazy! restore" +qa
+      - name: clean
+        run: nvim --headless "+Lazy! clean" +qa
+      - name: lsp
+        run: nvim --headless "+LspInfo!" +qa
       - uses: nickcharlton/diff-check@main
-        env:
-          XDG_CONFIG_HOME: ${{ github.workspace }}/config
         with:
           command: |
-            pipx run compile_renovate.py
-            echo "::group::setup"
-            nvim --headless +qa
-            echo "::endgroup::"
-            echo "::group::restore"
-            nvim --headless "+Lazy! restore" +qa
-            echo "::endgroup::"
-            echo "::group::clean"
-            nvim --headless "+Lazy! clean" +qa
-            echo "::endgroup::"
             git -c color.ui=always diff --word-diff
