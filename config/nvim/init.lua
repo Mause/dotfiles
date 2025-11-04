@@ -17,8 +17,8 @@ function dump(filename, obj)
   test:close()
 end
 
+require("config.lazy")
 if has("gui_running") then
-  require("config.lazy")
   require("config.mason")
   require("config.lspconfig")
   require("config.treesitter")
