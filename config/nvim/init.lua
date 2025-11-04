@@ -18,7 +18,7 @@ function dump(filename, obj)
 end
 
 require("config.lazy")
-if has("gui_running") then
+if vim.fn.has("gui_running") == 1 then
   require("config.mason")
   require("config.lspconfig")
   require("config.treesitter")
