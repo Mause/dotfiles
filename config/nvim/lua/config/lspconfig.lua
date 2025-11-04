@@ -6,16 +6,17 @@ if vim.uv.fs_stat(filename) then
   vim.lsp.config("ts_ls", {
     cmd = { "node", filename, "--stdio" },
     settings = {
-      editor = {
-        inlayHints = {
-          enabled = true,
-        },
-      },
       typescript = {
         inlayHints = {
-          parameterNames = {
-            enabled = true,
-          },
+          -- You can set this to 'all' or 'literals' to enable more hints
+          includeInlayParameterNameHints = "none", -- 'none' | 'literals' | 'all'
+          includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+          includeInlayFunctionParameterTypeHints = false,
+          includeInlayVariableTypeHints = false,
+          includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+          includeInlayPropertyDeclarationTypeHints = false,
+          includeInlayFunctionLikeReturnTypeHints = true,
+          includeInlayEnumMemberValueHints = true,
         },
       },
     },
