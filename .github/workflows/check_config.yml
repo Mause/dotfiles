@@ -10,11 +10,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
-      - run: pip install pipx
+      - name: Install the latest version of uv
+        uses: astral-sh/setup-uv@v7
       - run: |
           sudo apt update
           sudo apt install neovim
-      - run: pipx run compile_renovate.py
+      - run: uv run compile_renovate.py
       - name: setup
         run: nvim --headless +qa
       - name: restore
