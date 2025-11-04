@@ -21,3 +21,4 @@ pkg i lazygit
 pkg i nodejs yarn
 pkg i rust rust-analyzer
 pkg i fzf crystal
+pkg i emmylua-ls
