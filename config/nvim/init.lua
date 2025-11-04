@@ -17,12 +17,12 @@ function dump(filename, obj)
   test:close()
 end
 
-if has('gui_running') then
-require("config.lazy")
-require("config.mason")
-require("config.lspconfig")
-require("config.treesitter")
-require("config.dap")
+if has("gui_running") then
+  require("config.lazy")
+  require("config.mason")
+  require("config.lspconfig")
+  require("config.treesitter")
+  require("config.dap")
 end
 
 vim.cmd("colorscheme tokyonight")
