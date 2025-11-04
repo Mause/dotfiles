@@ -5,6 +5,20 @@ local filename = "/data/data/com.termux/files/usr/bin/typescript-language-server
 if vim.uv.fs_stat(filename) then
   vim.lsp.config("ts_ls", {
     cmd = { "node", filename, "--stdio" },
+      settings = {
+        editor = {
+          inlayHints = {
+            enabled = true
+          }
+        },
+        typescript = {
+          inlayHints = {
+            parameterNames = {
+              enabled = true
+            }
+          }
+        }
+      }
   })
 end
 
