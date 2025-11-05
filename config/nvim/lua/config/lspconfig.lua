@@ -75,8 +75,8 @@ vim.lsp.config("jdtls", {
           exclusions = { "this" },
         },
       },
-    }
-  }
+    },
+  },
 })
 
 vim.lsp.enable({
