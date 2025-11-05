@@ -1,27 +1,36 @@
 -- Setup language servers.
 
+local ts_settings = {
+  typescript = {
+    inlayHints = {
+      -- You can set this to 'all' or 'literals' to enable more hints
+      includeInlayParameterNameHints = "none", -- 'none' | 'literals' | 'all'
+      includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+      includeInlayFunctionParameterTypeHints = false,
+      includeInlayVariableTypeHints = false,
+      includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+      includeInlayPropertyDeclarationTypeHints = false,
+      includeInlayFunctionLikeReturnTypeHints = true,
+      includeInlayEnumMemberValueHints = true,
+    },
+  },
+}
 -- check if server exists before setting the path
 local filename = "/data/data/com.termux/files/usr/bin/typescript-language-server"
 if vim.uv.fs_stat(filename) then
   vim.lsp.config("ts_ls", {
     cmd = { "node", filename, "--stdio" },
-    settings = {
-      typescript = {
-        inlayHints = {
-          -- You can set this to 'all' or 'literals' to enable more hints
-          includeInlayParameterNameHints = "none", -- 'none' | 'literals' | 'all'
-          includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-          includeInlayFunctionParameterTypeHints = false,
-          includeInlayVariableTypeHints = false,
-          includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-          includeInlayPropertyDeclarationTypeHints = false,
-          includeInlayFunctionLikeReturnTypeHints = true,
-          includeInlayEnumMemberValueHints = true,
-        },
-      },
-    },
+    settings = ts_settings,
+  })
+else
+  vim.lsp.config("ts_ls", {
+    settings = ts_settings,
   })
 end
+
+vim.lsp.config("tsgo", {
+  settings = ts_settings,
+})
 
 vim.lsp.config("jsonls", {
   cmd = {
@@ -66,6 +75,16 @@ vim.lsp.config("jdtls", {
   cmd_env = {
     JDTLS_JVM_ARGS = "-javaagent:"
       .. vim.fn.expand("$HOME/.m2/repository/org/projectlombok/lombok/1.18.40/lombok-1.18.40.jar"),
+  },
+  settings = {
+    java = {
+      inlayHints = {
+        parameterNames = {
+          enabled = "all",
+          exclusions = { "this" },
+        },
+      },
+    },
   },
 })
 
