@@ -1,11 +1,6 @@
 -- Setup language servers.
 
--- check if server exists before setting the path
-local filename = "/data/data/com.termux/files/usr/bin/typescript-language-server"
-if vim.uv.fs_stat(filename) then
-  vim.lsp.config("ts_ls", {
-    cmd = { "node", filename, "--stdio" },
-    settings = {
+local ts_settings = {
       typescript = {
         inlayHints = {
           -- You can set this to 'all' or 'literals' to enable more hints
@@ -19,9 +14,23 @@ if vim.uv.fs_stat(filename) then
           includeInlayEnumMemberValueHints = true,
         },
       },
-    },
+    }
+-- check if server exists before setting the path
+local filename = "/data/data/com.termux/files/usr/bin/typescript-language-server"
+if vim.uv.fs_stat(filename) then
+  vim.lsp.config("ts_ls", {
+    cmd = { "node", filename, "--stdio" },
+    settings = ts_settings
+  })
+else
+  vim.lsp.config("ts_ls", {
+    settings = ts_settings
   })
 end
+
+vim.lsp.config("tsgo", {
+    settings = ts_settings
+  })
 
 vim.lsp.config("jsonls", {
   cmd = {
