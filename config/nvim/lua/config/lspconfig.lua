@@ -88,6 +88,22 @@ vim.lsp.config("jdtls", {
   },
 })
 
+vim.lsp.config("gopls", {
+  settings = {
+    gopls = {
+      hints = {
+        rangeVariableTypes = true,
+        parameterNames = true,
+        constantValues = true,
+        assignVariableTypes = true,
+        compositeLiteralFields = true,
+        compositeLiteralTypes = true,
+        functionTypeParameters = true,
+      },
+    },
+  },
+})
+
 vim.lsp.enable({
   "ty",
   "ts_ls",
@@ -101,6 +117,7 @@ vim.lsp.enable({
   "fish_lsp",
   "graphql",
   "jdtls",
+  "gopls",
 })
 
 -- Use LspAttach autocommand to only map the following keys
