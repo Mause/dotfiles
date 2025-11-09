@@ -88,7 +88,7 @@ vim.lsp.config("jdtls", {
   },
 })
 
-vim.lsp.config("gopls",
+vim.lsp.config("gopls", {
   settings = {
     gopls = {
       hints = {
