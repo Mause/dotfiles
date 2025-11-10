@@ -28,3 +28,6 @@ jobs:
         with:
           command: |
             git -c color.ui=always diff --word-diff
+            echo "```diff" >> $GITHUB_STEP_SUMMARY
+            git diff >> $GITHUB_STEP_SUMMARY
+            echo "```" >> $GITHUB_STEP_SUMMARY
