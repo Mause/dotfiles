@@ -5,6 +5,7 @@
 from pathlib import Path
 
 import os
+import sys
 import json5
 import jsonata
 from more_itertools import unique
@@ -88,7 +89,7 @@ class Encoder(json5.lib.JSON5Encoder):
 
 
 def main():
-    if "CI" not in os.environ:
+    if not ("CI" in os.environ or "--force" in sys.argv):
         print("Not running locally")
         return
 
