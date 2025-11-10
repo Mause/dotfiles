@@ -4,6 +4,7 @@
 
 from pathlib import Path
 
+import os
 import json5
 import jsonata
 from more_itertools import unique
@@ -87,6 +88,10 @@ class Encoder(json5.lib.JSON5Encoder):
 
 
 def main():
+    if "CI" not in os.environ:
+        print("Not running locally")
+        return
+
     template = "".join(
         [
             "{{# if (equals depName '%s') }}%s{{/if}}" % (dep["name"], dep["owner"])
