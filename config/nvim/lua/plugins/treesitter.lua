@@ -14,6 +14,5 @@ return {
     "github/copilot.vim",
     cond = not os.getenv("ATLASSIAN"),
   },
-  { "nvim-tree/nvim-tree.lua", opts = {}, dependencies = { "nvim-tree/nvim-web-devicons" } },
   { "numToStr/Comment.nvim", opts = {} },
 }
