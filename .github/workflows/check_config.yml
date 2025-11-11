@@ -12,9 +12,6 @@ jobs:
           node-version: "22"
       - run: npm install -g renovate@latest
       - run: renovate-config-validator --strict renovate.json5
-      - run: renovate --print-config
-        env:
-          RENOVATE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   check:
     runs-on: ubuntu-latest
