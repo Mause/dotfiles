@@ -14,7 +14,7 @@ jobs:
       - run: renovate-config-validator --strict renovate.json5
       - run: renovate --print-config
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RENOVATE_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   check:
     runs-on: ubuntu-latest
