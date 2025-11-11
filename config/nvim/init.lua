@@ -22,5 +22,6 @@ require("config.mason")
 require("config.lspconfig")
 require("config.treesitter")
 require("config.dap")
+require("config.indentlines")
 
 vim.cmd("colorscheme tokyonight")
