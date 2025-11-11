@@ -2,6 +2,18 @@ name: Check config
 on: push
 
 jobs:
+  check_renovate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install -g renovate
+      - run: renovate --print-config
+      - run: renovate-config-validator --strict .
+
   check:
     runs-on: ubuntu-latest
 
