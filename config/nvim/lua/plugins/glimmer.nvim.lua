@@ -6,5 +6,5 @@ return {
     config = function()
       require("tiny-glimmer").setup()
     end,
-  }
+  },
 }
