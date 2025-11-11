@@ -2,11 +2,12 @@ return {
   {
     "saghen/blink.pairs",
     version = "*", -- (recommended) only required with prebuilt binaries
-    -- opts = {
-    --   highlights = {
-    --     enabled = true,
-    --   }
-    -- },
+    dependencies = 'saghen/blink.download',
+    opts = {
+      --   highlights = {
+      --     enabled = true,
+      --   }
+    },
   },
   -- lazy.nvim
   {
