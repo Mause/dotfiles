@@ -11,3 +11,6 @@
 [submodule "config/tmux/plugins/tpm"]
 	path = config/tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
+[submodule "local/share/gh/extensions/gh-notify"]
+	path = local/share/gh/extensions/gh-notify
+	url = https://github.com/meiji163/gh-notify
