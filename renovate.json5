@@ -21,8 +21,7 @@
       matchStrings: [
         '"(?<depName>[^"]+)": { "branch": "(?<currentValue>[^"]+)", "commit": "(?<currentDigest>[^"]+)" }',
       ],
-      depNameTemplate: "https://github.com/\
-{{# if (equals depName 'Comment.nvim') }}numToStr{{/if}}\
+      depNameTemplate: "https://github.com/{{# if (equals depName 'Comment.nvim') }}numToStr{{/if}}\
 {{# if (equals depName 'SchemaStore.nvim') }}b0o{{/if}}\
 {{# if (equals depName 'aerial.nvim') }}stevearc{{/if}}\
 {{# if (equals depName 'blink.cmp') }}Saghen{{/if}}\
@@ -62,8 +61,7 @@
 {{# if (equals depName 'tokyonight.nvim') }}folke{{/if}}\
 {{# if (equals depName 'triforce.nvim') }}gisketch{{/if}}\
 {{# if (equals depName 'trouble.nvim') }}folke{{/if}}\
-{{# if (equals depName 'volt') }}nvzone{{/if}}/{{depName}}\
-",
+{{# if (equals depName 'volt') }}nvzone{{/if}}/{{depName}}",
       versioningTemplate: 'git',
       datasourceTemplate: 'git-refs',
     },
