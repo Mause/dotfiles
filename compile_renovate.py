@@ -92,8 +92,9 @@ def main():
     if not ("CI" in os.environ or "--force" in sys.argv):
         print("Not running locally")
         return
+    MARKER = "<<<MARKER>>>"
 
-    template = "".join(
+    template = MARKER.join(
         [
             "{{# if (equals depName '%s') }}%s{{/if}}" % (dep["name"], dep["owner"])
             for dep in get_all_deps()
@@ -121,16 +122,16 @@ def main():
 
     custom["depNameTemplate"] = res
 
+    res = json5.dumps(
+        renovate,
+        indent=2,
+        quote_style=json5.QuoteStyle.PREFER_SINGLE,
+        cls=Encoder,
+    )
+    res = "\\\n".join(res.split(MARKER))
+
     with renovate_json.open("w") as fh:
-        fh.write(
-            json5.dumps(
-                renovate,
-                indent=2,
-                quote_style=json5.QuoteStyle.PREFER_SINGLE,
-                cls=Encoder,
-            )
-            + "\n"
-        )
+        fh.write(res + "\n")
 
 
 if __name__ == "__main__":
