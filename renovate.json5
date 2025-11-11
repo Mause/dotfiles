@@ -25,6 +25,8 @@
 {{# if (equals depName 'SchemaStore.nvim') }}b0o{{/if}}\
 {{# if (equals depName 'aerial.nvim') }}stevearc{{/if}}\
 {{# if (equals depName 'blink.cmp') }}Saghen{{/if}}\
+{{# if (equals depName 'blink.indent') }}saghen{{/if}}\
+{{# if (equals depName 'blink.pairs') }}saghen{{/if}}\
 {{# if (equals depName 'bruno.nvim') }}romek-codes{{/if}}\
 {{# if (equals depName 'copilot.vim') }}github{{/if}}\
 {{# if (equals depName 'git-notify.nvim') }}pynappo{{/if}}\
