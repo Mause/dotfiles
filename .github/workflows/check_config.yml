@@ -11,10 +11,10 @@ jobs:
         with:
           node-version: "20"
       - run: npm install -g renovate
+      - run: renovate-config-validator --strict .
       - run: renovate --print-config
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: renovate-config-validator --strict .
 
   check:
     runs-on: ubuntu-latest
