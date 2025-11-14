@@ -25,6 +25,7 @@ jobs:
           repository: LuaLS/LLS-Addons
           path: LLS-Addons
           # submodules: true
+      - run: git submodule init LLS-Addons/luvit
       - uses: rhysd/action-setup-vim@v1
         with:
           neovim: true
@@ -34,6 +35,8 @@ jobs:
           curl -L -o emmylua.tar.gz https://github.com/EmmyLuaLs/emmylua-analyzer-rust/releases/download/0.17.0/emmylua_check-linux-x64.tar.gz
           tar -xzf emmylua.tar.gz -C build/emmylua
       - name: Run emmylua
+        env:
+          LLS_Addons: ${{ github.workspace }}/LLS-Addons
         run: |
           export VIMRUNTIME="$(nvim --headless --cmd 'echo $VIMRUNTIME' +q 2>&1)"
           ./build/emmylua/emmylua_check --config=config/nvim/.emmyrc.json config/nvim/
