@@ -2,7 +2,7 @@
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
   "SchemaStore.nvim": { "branch": "main", "commit": "976b31e094615b2c27009561b3c67a37c87c93c2" },
   "aerial.nvim": { "branch": "master", "commit": "5e687b5a14004fa2dd9eccbee042b96869fe1557" },
-  "blink.cmp": { "branch": "main", "commit": "327fff91fe6af358e990be7be1ec8b78037d2138" },
+  "blink.cmp": { "branch": "main", "commit": "de573225b473eb053c356b2c2f5d65aead24b66d" },
   "blink.download": { "branch": "main", "commit": "86361b98f3c8317904a08e3bd12cf3cdcbe3e925" },
   "blink.indent": { "branch": "main", "commit": "c3d4f80bd15c1224f6d8a817ebb4edb31d081096" },
   "blink.pairs": { "branch": "main", "commit": "5a34bf6ea72340a70083548e186d745ac4882899" },
