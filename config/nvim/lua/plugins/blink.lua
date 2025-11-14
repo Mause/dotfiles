@@ -1,5 +1,24 @@
 return {
   {
+    "saghen/blink.pairs",
+    version = "*", -- (recommended) only required with prebuilt binaries
+    dependencies = {
+      "saghen/blink.download",
+    },
+    opts = {
+      --   highlights = {
+      --     enabled = true,
+      --   }
+    },
+  },
+  -- lazy.nvim
+  {
+    "saghen/blink.indent",
+    --- @module 'blink.indent'
+    --- @type blink.indent.Config
+    -- opts = {},
+  },
+  {
     "Saghen/blink.cmp",
     version = "1.*",
     opts = {
