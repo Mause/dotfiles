@@ -25,7 +25,10 @@ jobs:
           repository: LuaLS/LLS-Addons
           path: LLS-Addons
           # submodules: true
-      - run: git submodule init LLS-Addons/addons/luvit
+      - run: |
+          ls
+          git submodule init addons/luvit
+        working-directory: LLS-Addons
       - uses: rhysd/action-setup-vim@v1
         with:
           neovim: true
