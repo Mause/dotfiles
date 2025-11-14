@@ -22,6 +22,9 @@ jobs:
           repository: LuaLS/LLS-Addons
           path: LLS-Addons
           # submodules: true
+      - uses: rhysd/action-setup-vim@v1
+        with:
+          neovim: true
       - name: Install emmylua
         run: |
           mkdir -p build/emmylua
@@ -29,6 +32,7 @@ jobs:
           tar -xzf emmylua.tar.gz -C build/emmylua
       - name: Run emmylua
         run: |
+          export VIMRUNTIME="$(nvim --headless --cmd 'echo $VIMRUNTIME' +q 2>&1)"
           ./build/emmylua/emmylua_check --config=config/nvim/.emmyrc.json config/nvim/
 
   check:
