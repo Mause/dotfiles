@@ -1,6 +1,9 @@
 name: Check config
 on: push
 
+env:
+  FORCE_COLOR: 1
+
 jobs:
   check_renovate:
     runs-on: ubuntu-latest
