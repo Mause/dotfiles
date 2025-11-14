@@ -9,6 +9,8 @@ repos:
     rev: v2.3.0
     hooks:
       - id: stylua
+        additional_dependencies:
+          - "smol_str@9.5.3"
   - repo: local
     hooks:
       - id: compile_renovate
