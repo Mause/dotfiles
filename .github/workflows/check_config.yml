@@ -17,6 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+      - uses: actions/checkout@v5
+        with:
+          url: https://github.com/LuaLS/LLS-Addons
+          submodules: true
       - name: Install emmylua
         run: |
           mkdir -p build/emmylua
