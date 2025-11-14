@@ -9,7 +9,7 @@ repos:
         args: [--unique]
         files: .gitignore
   - repo: https://github.com/JohnnyMorganz/StyLua
-    rev: v2.3.0
+    rev: v2.3.1
     hooks:
       - id: stylua
   - repo: local
