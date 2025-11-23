@@ -4,7 +4,7 @@
   "aerial.nvim": { "branch": "master", "commit": "3c42785790d401731e7809a25f27f62dae2fec12" },
   "blink.cmp": { "branch": "main", "commit": "73ea297bc665c936b51797d5a55599536ffee0d8" },
   "blink.download": { "branch": "main", "commit": "86361b98f3c8317904a08e3bd12cf3cdcbe3e925" },
-  "blink.indent": { "branch": "main", "commit": "69499c0167cc48e8bfc98d3b97a58c14ff8df0a8" },
+  "blink.indent": { "branch": "main", "commit": "2f4ac0d1bc642049d97da909cae02a5a5bd0beab" },
   "blink.pairs": { "branch": "main", "commit": "8e935d07ab6a3843565afd6a6d56456678cbf43f" },
   "bruno.nvim": { "branch": "main", "commit": "ad3b2c0039174ac1e7b7247016e95bd7e5d84755" },
   "copilot.vim": { "branch": "release", "commit": "f89e977c87180519ba3b942200e3d05b17b1e2fc" },
