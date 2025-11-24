@@ -1,0 +1,6 @@
+[plugins]
+# tpm = "tmux-plugins/tpm"
+sensible = "https://github.com/tmux-plugins/tmux-sensible"
+nerd_font = "https://github.com/joshmedeski/tmux-nerd-font-window-name"
+finder = "https://github.com/Naveenxyz/tmux-command-finder-fzf"
+git = "https://github.com/NigelGreenway/tmux-git-worktree"
