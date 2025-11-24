@@ -12,6 +12,7 @@ return {
   ---@type LazySpec
   {
     "github/copilot.vim",
+    version = "v1.55.0",
     cond = not os.getenv("ATLASSIAN"),
   },
   { "numToStr/Comment.nvim", opts = {} },
