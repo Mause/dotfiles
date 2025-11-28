@@ -11,9 +11,12 @@ return {
       --   }
     },
   },
-  -- lazy.nvim
   {
     "saghen/blink.indent",
+    version = "*", -- (recommended) only required with prebuilt binaries
+    dependencies = {
+      "saghen/blink.download",
+    },
     --- @module 'blink.indent'
     --- @type blink.indent.Config
     -- opts = {},
