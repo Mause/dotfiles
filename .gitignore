@@ -27,7 +27,6 @@ config/google-chrome
 config/obsidian
 config/pudb/internal-cmdline-history.txt
 config/pudb/saved-breakpoints-*
-config/tmux/plugins
 config/yarn/global
 config/zed/.*
 config/zed/conversations
