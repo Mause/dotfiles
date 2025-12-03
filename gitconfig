@@ -46,9 +46,9 @@
 [diff]
 	tool = nvimdiff
 [git-town]
-	new-branch-type=feature
-	sync-feature-strategy=rebase
-	sync-prototype-strategy=rebase
+	new-branch-type = prototype
+	sync-feature-strategy = merge
+	sync-prototype-strategy = rebase
 	github-connector = gh
 [sendemail]
 	smtpserver = smtp.gmail.com
