@@ -74,10 +74,12 @@ def get_deps(filename):
 
 
 def get_all_deps():
+    checkout = Path("~/.local/share/nvim/lazy").expanduser()
+    assert checkout.exists()
     deps = [
         dep
         for filename in list(Path("config/nvim/lua/plugins").glob("*.lua"))
-        + list(Path("~/.local/share/nvim/lazy").expanduser().glob("*/lazy.lua"))
+        + list(checkout.glob("*/lazy.lua"))
         for dep in get_deps(filename)
     ]
     deps.append({"owner": "folke", "name": "lazy.nvim"})
