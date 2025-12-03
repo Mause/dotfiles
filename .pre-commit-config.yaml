@@ -26,5 +26,6 @@ repos:
             "jsonata-python",
             "pdbpp",
             "pybars3",
+            "rich",
             "more_itertools",
           ]
