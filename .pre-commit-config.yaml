@@ -1,5 +1,5 @@
 ci:
-  skip: [stylua]
+  skip: [stylua, renovate-config-validator]
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -33,3 +33,4 @@ repos:
     hooks:
       - id: renovate-config-validator
         args: [--strict]
+        files: '.*\\.json5$'
