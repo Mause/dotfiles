@@ -26,7 +26,6 @@ jobs:
       - uses: rhysd/action-setup-vim@v1
         with:
           neovim: true
-      - run: uv run compile_renovate.py
       - name: setup
         run: nvim --headless +qa
       - name: restore
@@ -35,6 +34,7 @@ jobs:
         run: nvim --headless "+Lazy! clean" +qa
       - name: lsp
         run: nvim --headless "+LspInfo" +qa
+      - run: uv run compile_renovate.py
       - uses: nickcharlton/diff-check@main
         with:
           command: |
