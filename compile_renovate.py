@@ -75,7 +75,7 @@ def get_deps(filename):
 
 def get_all_deps():
     checkout = Path("~/.local/share/nvim/lazy").expanduser()
-    assert checkout.exists()
+    assert checkout.exists(), checkout
     deps = [
         dep
         for filename in list(Path("config/nvim/lua/plugins").glob("*.lua"))
