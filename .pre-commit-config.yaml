@@ -26,6 +26,7 @@ repos:
             "jsonata-python",
             "pdbpp",
             "pybars3",
+            "rich",
             "more_itertools",
           ]
   - repo: https://github.com/renovatebot/pre-commit-hooks

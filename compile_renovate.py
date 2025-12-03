@@ -1,5 +1,13 @@
 # /// script
-# dependencies = ['slpp', 'json5', 'jsonata-python', 'pdbpp', 'pybars3', 'more_itertools']
+# dependencies = [
+#   'slpp',
+#   'json5',
+#   'jsonata-python',
+#   'pdbpp',
+#   'pybars3',
+#   'rich',
+#   'more_itertools',
+# ]
 # ///
 
 from pathlib import Path
@@ -11,6 +19,9 @@ import jsonata
 from more_itertools import unique
 from pybars import Compiler
 from slpp import slpp
+from rich import traceback
+
+traceback.install(show_locals=True)
 
 renovate_json = Path("renovate.json5")
 
@@ -74,9 +85,12 @@ def get_deps(filename):
 
 
 def get_all_deps():
+    checkout = Path("~/.local/share/nvim/lazy").expanduser()
+    assert checkout.exists(), checkout
     deps = [
         dep
-        for filename in Path("config/nvim/lua/plugins").glob("*.lua")
+        for filename in list(Path("config/nvim/lua/plugins").glob("*.lua"))
+        + list(checkout.glob("*/lazy.lua"))
         for dep in get_deps(filename)
     ]
     deps.append({"owner": "folke", "name": "lazy.nvim"})

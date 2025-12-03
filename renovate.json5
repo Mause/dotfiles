@@ -44,6 +44,7 @@
 {{# if (equals depName 'mason-lspconfig.nvim') }}williamboman{{/if}}\
 {{# if (equals depName 'mason.nvim') }}williamboman{{/if}}\
 {{# if (equals depName 'none-ls.nvim') }}nvimtools{{/if}}\
+{{# if (equals depName 'nui.nvim') }}MunifTanjim{{/if}}\
 {{# if (equals depName 'nvim-dap') }}mfussenegger{{/if}}\
 {{# if (equals depName 'nvim-dap-ui') }}rcarriga{{/if}}\
 {{# if (equals depName 'nvim-lint') }}mfussenegger{{/if}}\
