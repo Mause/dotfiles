@@ -13,11 +13,11 @@
     },
     {
       matchDepNames: [
-        "blink.indent",
-        "blink.pairs",
-        "blink.cmp"
+        'blink.indent',
+        'blink.pairs',
+        'blink.cmp',
       ],
-      "overrideDatasource": "git-tags"
+      overrideDatasource: 'git-tags',
     }
   ],
   customManagers: [
