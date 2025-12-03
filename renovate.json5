@@ -11,6 +11,14 @@
       ],
       changelogUrl: '{{depName}}/compare/{{currentDigest}}...{{newDigest}}',
     },
+    {
+      matchDepNames: [
+        "blink.indent",
+        "blink.pairs",
+        "blink.cmp"
+      ],
+      "datasource": "git-tags"
+    }
   ],
   customManagers: [
     {
