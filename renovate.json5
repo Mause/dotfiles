@@ -73,8 +73,9 @@
 {{# if (equals depName 'triforce.nvim') }}gisketch{{/if}}\
 {{# if (equals depName 'trouble.nvim') }}folke{{/if}}\
 {{# if (equals depName 'volt') }}nvzone{{/if}}/{{depName}}",
+      // DEBUG: Dependency https://github.com/Saghen/blink.cmp has unsupported/unversioned value main (versioning=git)
       versioningTemplate: 'git',
-      datasourceTemplate: 'git-refs',
+      datasourceTemplate: "{{ if (eq depName 'blink.indent') }}github-tags{{ else }}git-refs{{ end }}",
     },
   ],
   logLevelRemap: [
