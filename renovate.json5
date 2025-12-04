@@ -75,7 +75,7 @@
 {{# if (equals depName 'volt') }}nvzone{{/if}}/{{depName}}",
       // DEBUG: Dependency https://github.com/Saghen/blink.cmp has unsupported/unversioned value main (versioning=git)
       versioningTemplate: 'git',
-      datasourceTemplate: "{{ if (eq depName 'blink.indent') }}github-tags{{ else }}git-refs{{ end }}",
+      datasourceTemplate: "{{# if (containsString 'blink.indent,blink.pairs,blink.cmp' depName) }}github-tags{{ else }}git-refs{{/if}}",
     },
   ],
   logLevelRemap: [
