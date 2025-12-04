@@ -134,9 +134,10 @@ def main():
                     cwd=checkout / dep["name"],
                 )
                 .strip()
+                .strip("v")
             )
             assert tag, f"no tag for {dep['name']} at {entry['commit']}"
-            assert fnmatch(version, tag), (
+            assert fnmatch(tag, version), (
                 f"{version} !~ {tag} for {dep['name']} at {entry['commit']}"
             )
 
