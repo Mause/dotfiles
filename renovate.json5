@@ -80,7 +80,7 @@
   ],
   logLevelRemap: [
     {
-      matchMessage: '/^Dependency extraction complete/',
+      matchMessage: '/.*Dependency extraction complete.*/',
       newLogLevel: 'trace',
     },
   ],
