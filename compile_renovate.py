@@ -9,6 +9,7 @@
 #   'more_itertools',
 # ]
 # ///
+import os
 import re
 import sys
 from fnmatch import translate
