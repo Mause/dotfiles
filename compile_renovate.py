@@ -9,19 +9,19 @@
 #   'more_itertools',
 # ]
 # ///
-from subprocess import check_output
-from fnmatch import fnmatch
-
-from pathlib import Path
-
 import os
+import re
 import sys
+from fnmatch import translate
+from pathlib import Path
+from subprocess import check_output
+
 import json5
 import jsonata
 from more_itertools import unique
 from pybars import Compiler
-from slpp import slpp
 from rich import traceback
+from slpp import slpp
 
 traceback.install(show_locals=True)
 
@@ -137,8 +137,11 @@ def main():
                 .strip("v")
             )
             assert tag, f"no tag for {dep['name']} at {entry['commit']}"
-            assert fnmatch(tag, version), (
-                f"{version} !~ {tag} for {dep['name']} at {entry['commit']}"
+            translated = translate(version.strip("^"))
+            if version.startswith("^"):
+                translated = "^" + translated[:-2]
+            assert re.match(translated, tag), (
+                f"{version} != {tag} for {dep['name']} at {entry['commit']}"
             )
 
     res = f"https://github.com/{template}/{{{{depName}}}}"
