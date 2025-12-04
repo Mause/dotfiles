@@ -9,13 +9,13 @@
 #   'more_itertools',
 # ]
 # ///
-from unittest import TestCase, main as unittest_main
-import os
 import re
 import sys
 from fnmatch import translate
 from pathlib import Path
 from subprocess import check_output
+from unittest import TestCase
+from unittest import main as unittest_main
 
 import json5
 import jsonata
@@ -203,4 +203,4 @@ class Tester(TestCase):
 
 if __name__ == "__main__":
     main()
-    unittest_main()
+    unittest_main(argv=[sys.argv[0]])
