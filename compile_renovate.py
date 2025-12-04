@@ -86,8 +86,10 @@ def get_deps(filename):
             break
 
 
+checkout = Path("~/.local/share/nvim/lazy").expanduser()
+
+
 def get_all_deps():
-    checkout = Path("~/.local/share/nvim/lazy").expanduser()
     assert checkout.exists(), checkout
     deps = [
         dep
@@ -125,9 +127,14 @@ def main():
         if version := dep.get("version"):
             entry = lazy_lock[dep["name"]]
 
-            tag = check_output(
-                ["git", "tag", "--points-at", entry["commit"]], text=True
-            ).strip()
+            tag = (
+                check_output(
+                    ["git", "tag", "--points-at", entry["commit"]],
+                    text=True,
+                    cwd=checkout / dep["name"],
+                )
+                .strip()
+            )
             assert tag, f"no tag for {dep['name']} at {entry['commit']}"
             assert fnmatch(version, tag), (
                 f"{version} !~ {tag} for {dep['name']} at {entry['commit']}"
