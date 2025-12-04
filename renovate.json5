@@ -74,7 +74,7 @@
 {{# if (equals depName 'trouble.nvim') }}folke{{/if}}\
 {{# if (equals depName 'volt') }}nvzone{{/if}}/{{depName}}",
       versioningTemplate: 'git',
-      datasourceTemplate: "{{# if (containsString 'blink.indent,blink.pairs,blink.cmp' depName) }}github-tags{{ else }}git-refs{{/if}}",
+      datasourceTemplate: "{{# if (containsString 'blink.indent,blink.pairs,blink.cmp' depName) }}git-tags{{ else }}git-refs{{/if}}",
     },
   ],
   logLevelRemap: [

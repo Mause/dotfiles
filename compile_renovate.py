@@ -198,7 +198,7 @@ class Tester(TestCase):
         )
         self.assertEqual(
             datasourceTemplate({"depName": "blink.indent"}, helpers=helpers),
-            "github-tags",
+            "git-tags",
         )
 
 
