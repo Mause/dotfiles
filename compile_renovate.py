@@ -31,8 +31,8 @@ def unwrap_dict(dep: dict):
     for k, v in dep.items():
         if k == 0:
             res["name"] = v
-        elif k == "branch":
-            res["branch"] = v
+        elif k in {"branch", "version"}:
+            res[k] = v
         elif k == "dependencies":
             res["dependencies"] = [
                 add_owner(unwrap_dict(d) if isinstance(d, dict) else {"name": d})
@@ -108,10 +108,11 @@ def main():
         return
     MARKER = "<<<MARKER>>>"
 
+    deps = get_all_deps()
     template = MARKER.join(
         [
             "{{# if (equals depName '%s') }}%s{{/if}}" % (dep["name"], dep["owner"])
-            for dep in get_all_deps()
+            for dep in deps
         ]
     )
 
