@@ -28,6 +28,8 @@ traceback.install(show_locals=True)
 
 renovate_json = Path("renovate.json5")
 
+# DEBUG: Dependency https://github.com/Saghen/blink.cmp has unsupported/unversioned value main (versioning=git)
+
 
 def unwrap_dict(dep: dict):
     res = {}
