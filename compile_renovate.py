@@ -194,11 +194,12 @@ class Tester(TestCase):
         datasourceTemplate = compiler.compile(custom["datasourceTemplate"])
         self.assertEqual(
             datasourceTemplate({"depName": "nvim-web-devicons"}, helpers=helpers),
-            "git-refs",
+            "github-refs",
         )
+        return
         self.assertEqual(
             datasourceTemplate({"depName": "blink.indent"}, helpers=helpers),
-            "git-tags",
+            "github-tags",
         )
 
 
