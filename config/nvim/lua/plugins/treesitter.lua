@@ -6,7 +6,7 @@ return {
   { "b0o/SchemaStore.nvim" },
   {
     "mrcjkb/rustaceanvim",
-    version = "^6", -- Recommended
+    version = "^7", -- Recommended
     lazy = false, -- This plugin is already lazy
   },
   ---@type LazySpec
