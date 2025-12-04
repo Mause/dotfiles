@@ -75,7 +75,7 @@
 {{# if (equals depName 'volt') }}nvzone{{/if}}\
 {{# if (equals depName 'which-key.nvim') }}folke{{/if}}/{{depName}}",
       versioningTemplate: 'git',
-      datasourceTemplate: "github-refs",
+      datasourceTemplate: 'github-refs',
     },
   ],
   logLevelRemap: [
