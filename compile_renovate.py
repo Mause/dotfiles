@@ -9,17 +9,19 @@
 #   'more_itertools',
 # ]
 # ///
-
-from pathlib import Path
-
 import os
+import re
 import sys
+from fnmatch import translate
+from pathlib import Path
+from subprocess import check_output
+
 import json5
 import jsonata
 from more_itertools import unique
 from pybars import Compiler
-from slpp import slpp
 from rich import traceback
+from slpp import slpp
 
 traceback.install(show_locals=True)
 
@@ -31,8 +33,8 @@ def unwrap_dict(dep: dict):
     for k, v in dep.items():
         if k == 0:
             res["name"] = v
-        elif k == "branch":
-            res["branch"] = v
+        elif k in {"branch", "version"}:
+            res[k] = v
         elif k == "dependencies":
             res["dependencies"] = [
                 add_owner(unwrap_dict(d) if isinstance(d, dict) else {"name": d})
@@ -84,8 +86,10 @@ def get_deps(filename):
             break
 
 
+checkout = Path("~/.local/share/nvim/lazy").expanduser()
+
+
 def get_all_deps():
-    checkout = Path("~/.local/share/nvim/lazy").expanduser()
     assert checkout.exists(), checkout
     deps = [
         dep
@@ -108,12 +112,37 @@ def main():
         return
     MARKER = "<<<MARKER>>>"
 
+    deps = get_all_deps()
     template = MARKER.join(
         [
             "{{# if (equals depName '%s') }}%s{{/if}}" % (dep["name"], dep["owner"])
-            for dep in get_all_deps()
+            for dep in deps
         ]
     )
+
+    with Path("config/nvim/lazy-lock.json").open() as fh:
+        lazy_lock = json5.load(fh)
+
+    for dep in deps:
+        if version := dep.get("version"):
+            entry = lazy_lock[dep["name"]]
+
+            tag = (
+                check_output(
+                    ["git", "tag", "--points-at", entry["commit"]],
+                    text=True,
+                    cwd=checkout / dep["name"],
+                )
+                .strip()
+                .strip("v")
+            )
+            assert tag, f"no tag for {dep['name']} at {entry['commit']}"
+            translated = translate(version.strip("^"))
+            if version.startswith("^"):
+                translated = "^" + translated[:-2]
+            assert re.match(translated, tag), (
+                f"{version} != {tag} for {dep['name']} at {entry['commit']}"
+            )
 
     res = f"https://github.com/{template}/{{{{depName}}}}"
 
