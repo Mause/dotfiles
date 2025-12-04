@@ -15,6 +15,8 @@ import sys
 from fnmatch import translate
 from pathlib import Path
 from subprocess import check_output
+from unittest import TestCase
+from unittest import main as unittest_main
 
 import json5
 import jsonata
@@ -26,6 +28,8 @@ from slpp import slpp
 traceback.install(show_locals=True)
 
 renovate_json = Path("renovate.json5")
+
+# DEBUG: Dependency https://github.com/Saghen/blink.cmp has unsupported/unversioned value main (versioning=git)
 
 
 def unwrap_dict(dep: dict):
@@ -146,23 +150,10 @@ def main():
 
     res = f"https://github.com/{template}/{{{{depName}}}}"
 
-    compiler = Compiler()
-    template = compiler.compile(res)
-    output = template(
-        {"depName": "nvim-web-devicons"}, helpers={"equals": lambda this, a, b: a == b}
-    )
-    assert output.count("//") == 1, output
-
     with renovate_json.open() as fh:
         renovate = json5.load(fh)
 
     custom = renovate["customManagers"][0]
-    if custom["customType"] == "jsonata":
-        expr = jsonata.Jsonata(custom["matchStrings"][0])
-        with open("config/nvim/lazy-lock.json") as fh:
-            data = json5.load(fh)
-        expr.evaluate(data)
-
     custom["depNameTemplate"] = res
 
     res = json5.dumps(
@@ -177,5 +168,40 @@ def main():
         fh.write(res + "\n")
 
 
+class Tester(TestCase):
+    def test_compile(self):
+        with renovate_json.open() as fh:
+            renovate = json5.load(fh)
+
+        custom = renovate["customManagers"][0]
+
+        res = custom["depNameTemplate"]
+        compiler = Compiler()
+        template = compiler.compile(res)
+        helpers = {
+            "equals": lambda this, a, b: a == b,
+            "containsString": lambda this, string, substring: substring in string,
+        }
+        output = template({"depName": "nvim-web-devicons"}, helpers=helpers)
+        self.assertEqual(output.count("//"), 1)
+
+        if custom["customType"] == "jsonata":
+            expr = jsonata.Jsonata(custom["matchStrings"][0])
+            with open("config/nvim/lazy-lock.json") as fh:
+                data = json5.load(fh)
+            expr.evaluate(data)
+
+        datasourceTemplate = compiler.compile(custom["datasourceTemplate"])
+        self.assertEqual(
+            datasourceTemplate({"depName": "nvim-web-devicons"}, helpers=helpers),
+            "git-refs",
+        )
+        self.assertEqual(
+            datasourceTemplate({"depName": "blink.indent"}, helpers=helpers),
+            "git-tags",
+        )
+
+
 if __name__ == "__main__":
     main()
+    unittest_main(argv=[sys.argv[0]])
