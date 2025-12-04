@@ -9,6 +9,8 @@
 #   'more_itertools',
 # ]
 # ///
+from subprocess import check_output
+from fnmatch import fnmatch
 
 from pathlib import Path
 
@@ -115,6 +117,21 @@ def main():
             for dep in deps
         ]
     )
+
+    with Path("config/nvim/lazy-lock.json").open() as fh:
+        lazy_lock = json5.load(fh)
+
+    for dep in deps:
+        if version := dep.get("version"):
+            entry = lazy_lock[dep["name"]]
+
+            tag = check_output(
+                ["git", "tag", "--points-at", entry["commit"]], text=True
+            ).strip()
+            assert tag, f"no tag for {dep['name']} at {entry['commit']}"
+            assert fnmatch(version, tag), (
+                f"{version} !~ {tag} for {dep['name']} at {entry['commit']}"
+            )
 
     res = f"https://github.com/{template}/{{{{depName}}}}"
 
