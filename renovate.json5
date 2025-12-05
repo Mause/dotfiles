@@ -13,11 +13,11 @@
     },
     {
       matchDepNames: [
-        'blink.indent',
-        'blink.pairs',
-        'blink.cmp',
+        'saghan/blink.indent',
+        'saghan/blink.pairs',
+        'Saghan/blink.cmp',
       ],
-      overrideDatasource: 'git-tags',
+      overrideDatasource: 'github-tags',
     },
   ],
   customManagers: [
@@ -29,7 +29,7 @@
       matchStrings: [
         '"(?<depName>[^"]+)": { "branch": "(?<currentValue>[^"]+)", "commit": "(?<currentDigest>[^"]+)" }',
       ],
-      depNameTemplate: "https://github.com/{{# if (equals depName 'Comment.nvim') }}numToStr{{/if}}\
+      depNameTemplate: "{{# if (equals depName 'Comment.nvim') }}numToStr{{/if}}\
 {{# if (equals depName 'SchemaStore.nvim') }}b0o{{/if}}\
 {{# if (equals depName 'aerial.nvim') }}stevearc{{/if}}\
 {{# if (equals depName 'blink.cmp') }}Saghen{{/if}}\
@@ -75,12 +75,12 @@
 {{# if (equals depName 'volt') }}nvzone{{/if}}\
 {{# if (equals depName 'which-key.nvim') }}folke{{/if}}/{{depName}}",
       versioningTemplate: 'git',
-      datasourceTemplate: "{{# if (containsString 'blink.indent,blink.pairs,blink.cmp' depName) }}git-tags{{ else }}git-refs{{/if}}",
+      datasourceTemplate: 'github-refs',
     },
   ],
   logLevelRemap: [
     {
-      matchMessage: '/^Dependency extraction complete/',
+      matchMessage: '/.*Dependency extraction complete.*/',
       newLogLevel: 'trace',
     },
   ],
