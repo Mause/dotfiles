@@ -1,5 +1,21 @@
 return {
-  { "nvim-treesitter/nvim-treesitter", branch = "master", lazy = false, build = ":TSUpdate" },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    branch = "master", 
+    lazy = false,
+    build = ":TSUpdate", 
+    config = function()
+      incremental_selection = { 
+        enable = true, 
+        keymaps = { 
+          init_selection = "<A-o>", 
+          node_incremental = "<A-o>", 
+          scope_incremental = "<A-O>",
+          node_decremental = "<A-i>",
+        }, 
+      }, 
+    }) end, 
+  },
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
   { "neovim/nvim-lspconfig" },
