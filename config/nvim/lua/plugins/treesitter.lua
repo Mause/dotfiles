@@ -1,20 +1,22 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
-    branch = "master", 
+    branch = "master",
     lazy = false,
-    build = ":TSUpdate", 
+    build = ":TSUpdate",
     config = function()
-      incremental_selection = { 
-        enable = true, 
-        keymaps = { 
-          init_selection = "<A-o>", 
-          node_incremental = "<A-o>", 
-          scope_incremental = "<A-O>",
-          node_decremental = "<A-i>",
-        }, 
-      }, 
-    }) end, 
+      require("nvim-treesitter").setup({
+        incremental_selection = {
+          enable = true,
+          keymaps = {
+            init_selection = "<A-o>",
+            node_incremental = "<A-o>",
+            scope_incremental = "<A-O>",
+            node_decremental = "<A-i>",
+          },
+        },
+      })
+    end,
   },
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
