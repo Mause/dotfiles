@@ -130,12 +130,15 @@ def main():
     for dep in deps:
         if version := dep.get("version"):
             entry = lazy_lock[dep["name"]]
+            cwd = checkout / dep["name"]
+            if not cwd.exists():
+                continue
 
             tag = (
                 check_output(
                     ["git", "tag", "--points-at", entry["commit"]],
                     text=True,
-                    cwd=checkout / dep["name"],
+                    cwd=cwd,
                 )
                 .strip()
                 .strip("v")
