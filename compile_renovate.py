@@ -41,17 +41,20 @@ def to_ast(source: bytes, node: Node):
     def splat(node: Node):
         return [to_ast(source, subnode) for subnode in node.named_children]
 
+    def single(node):
+        assert node.child_count == 1
+        return to_ast(source, node.named_child(0))
+
     kind = node.type
     match kind:
         case "return_statement":
-            return to_ast(source, node.named_child(0))
+            return single(node)
 
         case "chunk":
-            return to_ast(source, node.named_child(0))
+            return single(node)
 
         case "expression_list":
-            assert node.child_count == 1
-            return to_ast(source, node.named_child(0))
+            return single(node)
 
         case "table_constructor":
             res = {}
