@@ -67,7 +67,7 @@ def to_ast(source: bytes, node: Node):
                     assert item.child(1).text == b"="
                     res[first] = to_ast(source, item.child(2))
 
-            if all(isinstance(k,int) for k in res):
+            if all(isinstance(k, int) for k in res):
                 return list(res.values())
             return res
 
