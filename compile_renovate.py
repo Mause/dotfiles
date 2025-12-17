@@ -85,11 +85,29 @@ def to_ast(source: bytes, node: Node):
 
         case _:
             raise Exception(kind)
+
+
+def test_lua():
+    source = """
+    return {
+        "tree_sitter",
+        deps = {
+            "what"
+        }
+    }
+    """
+
+    assert lua_decode(source) == slpp.decode(source.strip()[len("return ") :])
+
+
 def lua_decode(source: str):
     lua_language = tree_sitter.Language(tree_sitter_lua.language())
     tree = tree_sitter.Parser(lua_language).parse(source.encode())
 
     return to_ast(source.encode(), tree.root_node)
+
+
+test_lua()
 
 
 def unwrap_dict(dep: dict):
