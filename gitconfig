@@ -15,6 +15,7 @@
 	prepend = town prepend
 	propose = town propose
 	sync = town sync
+	whatchanged = log --raw --no-merges
 [push]
 	autoSetupRemote = true
 [core]
