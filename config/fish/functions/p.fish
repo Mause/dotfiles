@@ -1,4 +1,4 @@
 # Defined in - @ line 2
 function p
-	poetry shell $argv
+	source .venv/bin/activate.fish
 end
