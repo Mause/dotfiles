@@ -119,6 +119,7 @@ vim.lsp.enable({
   "graphql",
   "jdtls",
   "gopls",
+  "pest_ls",
 })
 
 -- Use LspAttach autocommand to only map the following keys
