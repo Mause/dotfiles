@@ -7,6 +7,8 @@
 #   'pybars3',
 #   'rich',
 #   'more_itertools',
+#   'tree_sitter',
+#   'tree_sitter_lua',
 # ]
 # ///
 import os
@@ -24,12 +26,88 @@ from more_itertools import unique
 from pybars import Compiler
 from rich import traceback
 from slpp import slpp
+from tree_sitter import Node
+import tree_sitter
+import tree_sitter_lua
 
 traceback.install(show_locals=True)
 
 renovate_json = Path("renovate.json5")
 
 # DEBUG: Dependency https://github.com/Saghen/blink.cmp has unsupported/unversioned value main (versioning=git)
+
+
+def to_ast(source: bytes, node: Node):
+    def splat(node: Node):
+        return [to_ast(source, subnode) for subnode in node.named_children]
+
+    def single(node):
+        assert node.child_count == 1
+        return to_ast(source, node.named_child(0))
+
+    kind = node.type
+    match kind:
+        case "return_statement":
+            return single(node)
+
+        case "chunk":
+            return single(node)
+
+        case "expression_list":
+            return single(node)
+
+        case "table_constructor":
+            res = {}
+            for i, item in enumerate(node.named_children):
+                first = to_ast(source, item.named_child(0))
+                if item.child_count == 1:
+                    res[i] = first
+                else:
+                    assert item.child_count == 3
+                    assert item.child(1).text == b"="
+                    res[first] = to_ast(source, item.child(2))
+
+            if all(isinstance(k, int) for k in res):
+                return list(res.values())
+            return res
+
+        case "identifier":
+            return node.text.decode()
+
+        case "string":
+            return node.named_child(0).text.decode()
+
+        case "function_definition":
+            return []
+
+        case "comment":
+            return []
+
+        case _:
+            raise Exception(kind)
+
+
+def test_lua():
+    source = """
+    return {
+        "tree_sitter",
+        deps = {
+            "what"
+        }
+    }
+    """
+
+    assert lua_decode(source) == slpp.decode(source.strip()[len("return ") :])
+
+
+def lua_decode(source: str):
+    lua_language = tree_sitter.Language(tree_sitter_lua.language())
+    tree = tree_sitter.Parser(lua_language).parse(source.encode())
+
+    return to_ast(source.encode(), tree.root_node)
+
+
+test_lua()
 
 
 def unwrap_dict(dep: dict):
@@ -64,7 +142,7 @@ def get_deps(filename):
             lua = "\n".join(lua.splitlines()[idx:])
             break
 
-    contents = slpp.decode(lua[len("return") :])
+    contents = lua_decode(lua)
 
     assert isinstance(contents, (list, dict))
 
@@ -130,12 +208,15 @@ def main():
     for dep in deps:
         if version := dep.get("version"):
             entry = lazy_lock[dep["name"]]
+            cwd = checkout / dep["name"]
+            if not cwd.exists():
+                continue
 
             tag = (
                 check_output(
                     ["git", "tag", "--points-at", entry["commit"]],
                     text=True,
-                    cwd=checkout / dep["name"],
+                    cwd=cwd,
                 )
                 .strip()
                 .strip("v")
