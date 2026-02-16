@@ -1,3 +1,3 @@
 return {
-  "pest-parser/pest.vim",
+  { "pest-parser/pest.vim" },
 }
