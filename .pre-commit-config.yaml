@@ -9,7 +9,7 @@ repos:
         args: [--unique]
         files: .gitignore
   - repo: https://github.com/JohnnyMorganz/StyLua
-    rev: v2.3.1
+    rev: v2.4.0
     hooks:
       - id: stylua
   - repo: local
@@ -30,7 +30,7 @@ repos:
             "more_itertools",
           ]
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 43.5.3
+    rev: 43.101.1
     hooks:
       - id: renovate-config-validator
         args: [--strict]
