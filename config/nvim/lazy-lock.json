@@ -8,7 +8,7 @@
   "blink.pairs": { "branch": "main", "commit": "5a34bf6ea72340a70083548e186d745ac4882899" },
   "copilot.vim": { "branch": "release", "commit": "dfe0a3a1c256167d181488a73ec6ccab8d8931a9" },
   "git-notify.nvim": { "branch": "main", "commit": "85cea43ff032c45706cd8ae5a16578c756e7b28e" },
-  "lazy.nvim": { "branch": "main", "commit": "85c7ff3711b730b4030d03144f6db6375044ae82" },
+  "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
   "lualine.nvim": { "branch": "master", "commit": "47f91c416daef12db467145e16bed5bbfe00add8" },
   "markview.nvim": { "branch": "main", "commit": "bf62f7d173f4b42cd02794c6c5f5a8bd3047a58a" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "0b9bb925c000ae649ff7e7149c8cd00031f4b539" },
