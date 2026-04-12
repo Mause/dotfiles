@@ -16,6 +16,7 @@
 	propose = town propose
 	sync = town sync
 	whatchanged = log --raw --no-merges
+	pushf = push --force-with-lease --force-if-includes
 [push]
 	autoSetupRemote = true
 [core]
@@ -46,6 +47,8 @@
 	diffFilter = diff-so-fancy --patch
 [diff]
 	tool = nvimdiff
+	renames = copies
+	submodule = log
 [git-town]
 	new-branch-type = prototype
 	sync-feature-strategy = merge
