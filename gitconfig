@@ -16,6 +16,7 @@
 	propose = town propose
 	sync = town sync
 	whatchanged = log --raw --no-merges
+	pushf = push --force-with-lease --force-if-includes
 [push]
 	autoSetupRemote = true
 [core]
