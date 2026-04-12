@@ -48,6 +48,7 @@
 [diff]
 	tool = nvimdiff
 	renames = copies
+	submodule = log
 [git-town]
 	new-branch-type = prototype
 	sync-feature-strategy = merge
