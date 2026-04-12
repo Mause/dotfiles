@@ -47,6 +47,7 @@
 	diffFilter = diff-so-fancy --patch
 [diff]
 	tool = nvimdiff
+	renames = copies
 [git-town]
 	new-branch-type = prototype
 	sync-feature-strategy = merge
