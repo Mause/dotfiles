@@ -24,13 +24,12 @@ return {
             java = true,
         },
       })
-      -- require("telescope").load_extension("refactoring")
     end,
     keys = {
       {
         "<leader>rr",
         function()
-          require("telescope").extensions.refactoring.refactors()
+          require("refactoring").select_refactor()
         end,
         mode = "v",
         desc = "Select refactor",
