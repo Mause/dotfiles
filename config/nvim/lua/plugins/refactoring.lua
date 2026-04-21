@@ -2,7 +2,7 @@ return {
   {
     "ThePrimeagen/refactoring.nvim",
     dependencies = {
-      "nvim-lua/plenary.nvim",
+      "lewis6991/async.nvim",
       "nvim-treesitter/nvim-treesitter",
     },
     lazy = false,
@@ -24,7 +24,7 @@ return {
             java = true,
         },
       })
-      require("telescope").load_extension("refactoring")
+      -- require("telescope").load_extension("refactoring")
     end,
     keys = {
       {
