@@ -32,6 +32,7 @@
       depNameTemplate: "https://github.com/{{# if (equals depName 'Comment.nvim') }}numToStr{{/if}}\
 {{# if (equals depName 'SchemaStore.nvim') }}b0o{{/if}}\
 {{# if (equals depName 'aerial.nvim') }}stevearc{{/if}}\
+{{# if (equals depName 'async.nvim') }}lewis6991{{/if}}\
 {{# if (equals depName 'blink.cmp') }}Saghen{{/if}}\
 {{# if (equals depName 'blink.download') }}saghen{{/if}}\
 {{# if (equals depName 'blink.indent') }}saghen{{/if}}\
