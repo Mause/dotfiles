@@ -2,35 +2,18 @@ return {
   {
     "ThePrimeagen/refactoring.nvim",
     dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
+      "lewis6991/async.nvim",
     },
     lazy = false,
     config = function()
       require("refactoring").setup({
-        show_success_message = true,
-        -- prompt for return type
-        prompt_func_return_type = {
-            go = true,
-            cpp = true,
-            c = true,
-            java = true,
-        },
-        -- prompt for function parameters
-        prompt_func_param_type = {
-            go = true,
-            cpp = true,
-            c = true,
-            java = true,
-        },
       })
-      require("telescope").load_extension("refactoring")
     end,
     keys = {
       {
         "<leader>rr",
         function()
-          require("telescope").extensions.refactoring.refactors()
+          require("refactoring").select_refactor()
         end,
         mode = "v",
         desc = "Select refactor",
