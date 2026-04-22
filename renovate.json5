@@ -60,7 +60,6 @@
 {{# if (equals depName 'octo.nvim') }}pwntester{{/if}}\
 {{# if (equals depName 'pest.vim') }}pest-parser{{/if}}\
 {{# if (equals depName 'pipeline.nvim') }}topaxi{{/if}}\
-{{# if (equals depName 'pest.vim') }}pest-parser{{/if}}\
 {{# if (equals depName 'plenary.nvim') }}nvim-lua{{/if}}\
 {{# if (equals depName 'refactoring.nvim') }}ThePrimeagen{{/if}}\
 {{# if (equals depName 'rustaceanvim') }}mrcjkb{{/if}}\
