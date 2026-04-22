@@ -1,1 +1,4 @@
 *.history
+configs/default
+formats/default
+view-info-*.json
