@@ -9,7 +9,7 @@ pkg i gitoxide
 pkg i fd bat
 pkg i ruff
 pkg i libxml2 libxslt
-pkg i diff-so-fancy
+pkg i git-delta
 pkg i uv
 pkg i gh direnv chafa
 pkg i file
