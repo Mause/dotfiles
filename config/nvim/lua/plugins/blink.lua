@@ -3,7 +3,7 @@ return {
     "saghen/blink.pairs",
     version = "*", -- (recommended) only required with prebuilt binaries
     dependencies = {
-      "saghen/blink.download",
+      "saghen/blink.lib",
     },
     opts = {
       --   highlights = {
@@ -15,7 +15,7 @@ return {
     "saghen/blink.indent",
     version = "*", -- (recommended) only required with prebuilt binaries
     dependencies = {
-      "saghen/blink.download",
+      "saghen/blink.lib",
     },
     --- @module 'blink.indent'
     --- @type blink.indent.Config
