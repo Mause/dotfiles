@@ -1,23 +1,24 @@
 -- Treesitter Plugin Setup
-require("nvim-treesitter").install(
-  {
-    "diff",
-    "gitcommit",
-    "lua",
-    "markdown",
-    "markdown_inline",
-    "python",
-    "rust",
-    "toml",
-    "vim",
-    "vimdoc",
-  })
+require("nvim-treesitter").install({
+  "diff",
+  "gitcommit",
+  "lua",
+  "markdown",
+  "markdown_inline",
+  "python",
+  "rust",
+  "toml",
+  "vim",
+  "vimdoc",
+})
 
 vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { '<filetype>' },
-  callback = function() vim.treesitter.start() end,
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "<filetype>" },
+  callback = function()
+    vim.treesitter.start()
+  end,
 })
 
 --   auto_install = true,

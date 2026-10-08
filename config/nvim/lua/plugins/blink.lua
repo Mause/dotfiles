@@ -24,7 +24,12 @@ return {
   {
     "Saghen/blink.cmp",
     version = "1.*",
+    dependencies = { "rafamadriz/friendly-snippets" },
     opts = {
+      snippets = { preset = "default" },
+      sources = {
+        default = { "lsp", "path", "snippets", "buffer" },
+      },
       keymap = { preset = "default" },
       completion = {
         menu = {
