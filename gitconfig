@@ -26,7 +26,7 @@
 [init]
 	defaultBranch = main
 [pull]
-	rebase = false
+	rebase = true
 [fetch]
 	prune = true
 	pruneTags = true
@@ -36,6 +36,7 @@
 	tool = nvimdiff
 [rebase]
 	autoSquash = true
+	autoStash = true
 [commit]
 	verbose = true
 [filter "lfs"]
