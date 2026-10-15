@@ -1,6 +1,6 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
-  "SchemaStore.nvim": { "branch": "main", "commit": "250aed7415ddd6cb3ea321490c7b35094ed9148d" },
+  "SchemaStore.nvim": { "branch": "main", "commit": "7fca30f2890a6acf9d21d194876c6ac960d92070" },
   "aerial.nvim": { "branch": "master", "commit": "8bb8697d180681746da41bef5c8691d04443af36" },
   "async.nvim": { "branch": "main", "commit": "7a1d7d49933fbe902b84b55f352a3b10fd587331" },
   "blink.cmp": { "branch": "main", "commit": "b19413d214068f316c78978b08264ed1c41830ec" },
