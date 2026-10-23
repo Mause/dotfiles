@@ -63,6 +63,9 @@
 	annotate = yes
 [mergetool]
 	keepBackup = false
+[merge "yarn"]
+  name = "yarn merge driver"
+  driver = yarn install
 [rerere]
 	enabled = true
 [delta]
